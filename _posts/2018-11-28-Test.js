@@ -22,9 +22,3 @@ var mymap = L.map('mapid').setView([40.74, -73.95], 13);
 
 
 
-
-</script>
-
-
-
-</body>
