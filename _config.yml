@@ -23,7 +23,6 @@ description: Urban Planner, Freelance Cartographer, Transit and Safe Streets Adv
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "aboutme"
   Projects:
     - website: "https://calvinbrown32.wordpress.com/"
 
@@ -133,7 +132,7 @@ url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"
 
 # Excerpt Word Length
 # Truncates the excerpt to the specified number of words on the index page
-excerpt_length: 50
+excerpt_length: 500
 
 # Character used to separate site title and description in HTML document title
 # and RSS feed title
