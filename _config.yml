@@ -172,6 +172,7 @@ link-tags: true
 
 # Exclude these files from production site
 exclude:
+  - feed.xml  #I added this one to the list. Do I want/need feed features?
   - CHANGELOG.md
   - CNAME
   - Dockerfile
