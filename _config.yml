@@ -5,7 +5,7 @@
 
 # If you are building a simple GitHub user page (https://username.github.io) then use these settings:
 
-url: "https://calvinbrown32.github.io" #this is the link for navbar title on top left hand corner of navbar
+url: "https://calvinbrown32.github.io" #this is the link for navbar title on top left hand corner of NAV BAR
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -15,7 +15,7 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Calvin Brownie #this is the text for the link in the top left hand corner of nav bar
+title: Calvin Brown #this is the text for the link in the top left hand corner of NAV BAR
 
 
 # Short description of your site
