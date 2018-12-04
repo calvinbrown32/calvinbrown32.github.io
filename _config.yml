@@ -6,7 +6,7 @@
 # If you are building a simple GitHub user page (https://username.github.io) then use these settings:
 
 # url: "https://calvinbrown32.github.io" #this is the link for navbar title on top left hand corner of NAV BAR
-baseurl: ""
+baseurl: "https://calvinbrown32.github.io"
 
 # If you are building a GitHub project page then use these settings:
 #url: "http://username.github.io/projectname"
@@ -15,8 +15,7 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-# title: Calvin Brown #this is the text for the link in the top left hand corner of NAV BAR
-
+title: Calvin Brown #this is the text for the link in the top left hand corner of NAV BAR
 
 # Short description of your site
 description: Urban Planner, Freelance Cartographer, Transit and Safe Streets Advocate
@@ -141,7 +140,7 @@ title-separator: ""
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Vancouver"
+timezone: "America/Chicago"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
