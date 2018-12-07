@@ -25,13 +25,41 @@ subtitle: Urban Planner, Freelance Cartographer, Transit and Safe Streets Advoca
   width: 60%;
   padding: 10px;
 }
+	
+	
+	.first-column {
+    width: 30%;
+    //padding: 0 10px 0 0;
+    float: left;
+}
+.second-column {
+    width: 70%;
+  //  padding: 0 10px 0 0;
+    float: right;
+}
+@media only screen and (max-width: 800px) {
+   .first-column {
+        width: 100%;
+        padding-bottom: 10px;
+        float: none;
+    }
+    .second-column {
+        width: 100%;
+        padding-bottom: 10px;
+        float: none;
+    }
+    
+}
+	
 </style>
+	
+	
 </head>
 	
 	
 <body>
 	
-<div id="mapid" class="center" style="width: 600px; height: 400px;"></div>
+<div id="mapid" class="second-column" style="width: 600px; height: 400px;"></div>
 
 
 <script>
