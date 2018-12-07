@@ -23,13 +23,13 @@
 
 .first-column {
     width: 30%;
-    padding: 0 10px 0 0;
+    //padding: 0 10px 0 0;
     float: left;
 }
 
 .second-column {
     width: 70%;
-    padding: 0 10px 0 0;
+  //  padding: 0 10px 0 0;
     float: right;
 }
 
@@ -62,7 +62,7 @@
 <div id="mapid" class="second-column" class="center" style="width: 600px; height: 400px;"></div>
 <script>
 
-var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 11);
+var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
 
     L.geoJson(ThomsonVanBuren,).addTo(mymap);
     L.geoJson(skycenter,).addTo(mymap);
