@@ -14,12 +14,23 @@
 
     <script src="https://calvinbrown32.github.io/geojson/NYC/Projects.js" type="text/javascript"></script>
 
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+</style>
 
 </head>
+
+
+
 <body>
 
 
-<div id="mapid" style="width: 600px; height: 400px;"></div>
+<div id="mapid" class="center" style="width: 600px; height: 400px;"></div>
 
 
 <script>
