@@ -20,27 +20,24 @@
   width: 60%;
   padding: 10px;
 }
-
-.first-column {
+	
+	
+	.first-column {
     width: 30%;
     //padding: 0 10px 0 0;
     float: left;
 }
-
 .second-column {
     width: 70%;
   //  padding: 0 10px 0 0;
     float: right;
 }
-
 @media only screen and (max-width: 800px) {
-
    .first-column {
         width: 100%;
         padding-bottom: 10px;
         float: none;
     }
-
     .second-column {
         width: 100%;
         padding-bottom: 10px;
@@ -48,35 +45,33 @@
     }
     
 }
-
+	
 </style>
-
+	
+	
 </head>
-
-
-
+	
+	<div>  </div>
 <body>
-
-<div  class="first-column"> "hello, how are you bla bla bla bla bla bla bla. What? Bla bla bla bla bla bla bla bla blaaaaaaaaaaaaaaaa?"</div>
-
+	
+<div class=first-column"> <b>Projects</b> </div>
+<div class=first-column"> Second Avenue Mapping Project </div>
+<div class=first-column"> Department of City Planning Area Map </div>
+<div class=first-column"> Dangerous Corridors in Long Island City </div>
+	
 <div id="mapid" class="second-column" class="center" style="width: 600px; height: 400px;"></div>
 <script>
-
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
-
     L.geoJson(ThomsonVanBuren,).addTo(mymap);
     L.geoJson(skycenter,).addTo(mymap);
        L.geoJson(licpedmap,).addTo(mymap);
         L.geoJson(mtaroutet,).addTo(mymap);
         L.geoJson(zoningareamap,).addTo(mymap);
-
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
 	maxZoom: 19,
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	subdomains: 'abcd'
 	}).addTo(mymap);
-	
 </script>
-
 </body>
