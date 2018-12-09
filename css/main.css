@@ -235,7 +235,9 @@ img {
   background-color: {{ site.navbar-children-col }};
   text-decoration: none !important;
   border-width: 0 1px 1px 1px;
-  font-weight: normal;
+  font-weight: small; //Calvin changed from 'normal'
+  width: 90px;  //Calvin added
+  
 }
 @media only screen and (max-width: 767px) {
   .navbar-custom .nav .navlinks-container.show-children {
