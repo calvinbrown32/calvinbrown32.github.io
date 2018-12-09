@@ -234,6 +234,7 @@ img {
   padding-left: 30px;
   background-color: {{ site.navbar-children-col }};
   text-decoration: none !important;
+  min-width: 300px;
   border-width: 0 1px 1px 1px;
   font-weight: small; //Calvin changed from 'normal' 
 }
