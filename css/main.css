@@ -219,6 +219,7 @@ img {
 /* Multi-level navigation links */
 .navbar-custom .nav .navlinks-container {
   position: relative;
+
 }
 .navbar-custom .nav .navlinks-parent:after {
   content: " \25BC";
@@ -234,10 +235,13 @@ img {
   padding-left: 30px;
   background-color: {{ site.navbar-children-col }};
   text-decoration: none !important;
-  min-width: 300px;
+  min-width: 300px; // Calvin added
+  right: 0 !important; // Calvin added
+  left: auto !important; Calvin added
   border-width: 0 1px 1px 1px;
   font-weight: small; //Calvin changed from 'normal' 
 }
+ 
 @media only screen and (max-width: 767px) {
   .navbar-custom .nav .navlinks-container.show-children {
     background: rgba(0, 0, 0, 0.2);
