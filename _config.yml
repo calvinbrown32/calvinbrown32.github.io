@@ -24,14 +24,14 @@ description: Urban Planner, Freelance Cartographer, Transit and Safe Streets Adv
 
 # List of links in the navigation bar
 navbar-links:
-  Projects:
+ */ Projects:
     - Mapping the Myth of the Second Avenue Subway: "https://calvinbrown32.github.io/secondavesubway"
     - Department of City Planning Area Map: "https://calvinbrown32.github.io/dcpareamap"
     - Dangerous Corridors in East Long Island City: "https://calvinbrown32.github.io/dangerouscorridorslic"
     - Safer Streets for Long Island City: "https://calvinbrown32.github.io/saferstreetslic"
     - 33rd Street Sky Center: "https://calvinbrown32.github.io/33rdstskycenter"
     - Visualizing Calmer Intersections: "https://calvinbrown32.github.io/visualizingcalmerintersections"
-    - The Death and Life of Great American Cities Revisited: "https://calvinbrown32.github.io/deathandliferevisited"
+    - The Death and Life of Great American Cities Revisited: "https://calvinbrown32.github.io/deathandliferevisited"/*
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
