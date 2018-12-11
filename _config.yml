@@ -24,6 +24,8 @@ description: Urban Planner, Freelance Cartographer, Transit and Safe Streets Adv
 
 # List of links in the navigation bar
 navbar-links:
+  Resume: "resume"
+  
 #  Projects:
 #    - Mapping the Myth of the Second Avenue Subway: "https://calvinbrown32.github.io/secondavesubway"
 #    - Department of City Planning Area Map: "https://calvinbrown32.github.io/dcpareamap"
