@@ -140,6 +140,8 @@ var licpedmap = {
   ]
 }
 
+
+
 var mtaroutet = {
 "type": "FeatureCollection",
 "name": "MTARouteT",
@@ -150,100 +152,11 @@ var mtaroutet = {
 }
 
 var zoningareamap =  {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -73.93259704113007,
-              40.74428403434483
-            ],
-            [
-              -73.93187016248703,
-              40.74419868515396
-            ],
-            [
-              -73.93181920051575,
-              40.74445879663201
-            ],
-            [
-              -73.93254607915877,
-              40.744548209717635
-            ],
-            [
-              -73.93259704113007,
-              40.74428403434483
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -73.93871784210205,
-              40.74205475883487
-            ],
-            [
-              -73.93099308013916,
-              40.74114433130455
-            ],
-            [
-              -73.93017768859863,
-              40.74514361651787
-            ],
-            [
-              -73.93783807754517,
-              40.746037732758055
-            ],
-            [
-              -73.93871784210205,
-              40.74205475883487
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -73.98955106735228,
-              40.73694970065323
-            ],
-            [
-              -73.98957252502441,
-              40.73140522873709
-            ],
-            [
-              -73.98165464401244,
-              40.731161326401214
-            ],
-            [
-              -73.98150444030762,
-              40.73693344188031
-            ],
-            [
-              -73.98955106735228,
-              40.73694970065323
-            ]
-          ]
-        ]
-      }
-    }
-  ]
+"type": "FeatureCollection",
+"name": "FreelanceZoningMapBoundary",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Borough": "MN", "Block": 897, "Lot": 16, "CD": 106, "CT2010": "48", "CB2010": "3001", "SchoolDist": "02", "Council": 2, "ZipCode": 10003, "FireComp": "E005", "PolicePrct": 13, "HealthCent": 14, "HealthArea": 5900, "SanitBoro": "1", "SanitDistr": "06", "SanitSub": "1A", "Address": "221 EAST 15 STREET", "ZoneDist1": "R7B", "ZoneDist2": null, "ZoneDist3": null, "ZoneDist4": null, "Overlay1": null, "Overlay2": null, "SPDist1": null, "SPDist2": null, "SPDist3": null, "LtdHeight": null, "SplitZone": "N", "BldgClass": "W7", "LandUse": "08", "Easements": 0, "OwnerType": "X", "OwnerName": "SOCIETY OF FRIENDS", "LotArea": 35220, "BldgArea": 55615, "ComArea": 55615, "ResArea": 0, "OfficeArea": 0, "RetailArea": 0, "GarageArea": 0, "StrgeArea": 0, "FactryArea": 0, "OtherArea": 55615, "AreaSource": "2", "NumBldgs": 3, "NumFloors": 4.75, "UnitsRes": 0, "UnitsTotal": 1, "LotFront": 158.83, "LotDepth": 206.5, "BldgFront": 152.0, "BldgDepth": 176.0, "Ext": null, "ProxCode": "2", "IrrLotCode": "Y", "LotType": "3", "BsmtCode": "2", "AssessLand": 3321900.0, "AssessTot": 7087950.0, "ExemptLand": 3321900.0, "ExemptTot": 7087950.0, "YearBuilt": 1964, "YearAlter1": 1988, "YearAlter2": 0, "HistDist": "Stuyvesant Square Historic District", "Landmark": "INDIVIDUAL LANDMARK", "BuiltFAR": 1.58, "ResidFAR": 3.0, "CommFAR": 0.0, "FacilFAR": 3.0, "BoroCode": 1, "BBL": 1008970016.0, "CondoNo": 0, "Tract2010": "0048", "XCoord": 988308, "YCoord": 206638, "ZoneMap": "12c", "ZMCode": null, "Sanborn": "102 036", "TaxMap": "10308", "EDesigNum": null, "APPBBL": 0.0, "APPDate": null, "PLUTOMapID": "1", "FIRM07_FLA": null, "PFIRM15_FL": null, "Version": "18V1", "MAPPLUTO_F": 0, "SHAPE_area": 35561.766529, "SHAPE_len": 781.60054296600003 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -73.987796995673762, 40.734215804409693 ], [ -73.987794094471269, 40.734280174827965 ], [ -73.987563470668519, 40.734763825496842 ], [ -73.987379148506818, 40.735017567827732 ], [ -73.986963613494254, 40.735423457108489 ], [ -73.986403707617399, 40.735712013567728 ], [ -73.98575406942571, 40.73585507761112 ], [ -73.985078095959423, 40.735838687801312 ], [ -73.984441754825198, 40.735664443603248 ], [ -73.983866193921912, 40.73542391520202 ], [ -73.983329454102275, 40.735107089071228 ], [ -73.982948230843107, 40.734679328032406 ], [ -73.982760062574471, 40.734182756641914 ], [ -73.982783474772447, 40.733666274707126 ], [ -73.983016157241593, 40.733180741612557 ], [ -73.983383250025739, 40.732678129699686 ], [ -73.9838008054884, 40.732272398310599 ], [ -73.984362745187269, 40.731984683434597 ], [ -73.985014058671652, 40.731843149859138 ], [ -73.985690988284361, 40.731861652363698 ], [ -73.986327269322402, 40.732038379735329 ], [ -73.986825266390497, 40.732248872046242 ], [ -73.987357900548844, 40.732565937081567 ], [ -73.98773593306386, 40.73299255304142 ], [ -73.987922467232806, 40.733487084998856 ], [ -73.987899293861375, 40.734001268910461 ], [ -73.987796995673762, 40.734215804409693 ] ] ] ] } }
+]
 }
+
