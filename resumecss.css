@@ -1,0 +1,111 @@
+body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote {
+	margin:0;
+	padding:0;
+	border-width:0;
+}
+body {
+	-epub-hyphens:auto;
+}
+div.Basic-Text-Frame {
+	border-style:solid;
+}
+li.JobBullets {
+	color:#000000;
+	font-family:"Tw Cen MT", sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	line-height:1.2;
+	list-style-position:inside;
+	list-style-type:disc;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	widows:1;
+}
+p.Basic-Paragraph {
+	color:#000000;
+	font-family:"Minion Pro", serif;
+	font-size:12px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.2;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	widows:1;
+}
+span.JobDescription {
+	font-family:"Tw Cen MT", sans-serif;
+	font-size:12px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.JobLocation {
+	font-family:"Tw Cen MT", sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.JobTitle {
+	font-family:"Tw Cen MT", sans-serif;
+	font-size:15px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.ResumeSections {
+	color:#545a5b;
+	font-family:"Tw Cen MT", sans-serif;
+	font-size:20px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.CharOverride-1 {
+	font-family:"Tw Cen MT", sans-serif;
+	font-size:40px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.CharOverride-2 {
+	font-size:12px;
+}
+span.CharOverride-3 {
+	font-size:16px;
+}
+span.CharOverride-4 {
+	font-family:"Tw Cen MT", sans-serif;
+	font-style:normal;
+	font-weight:bold;
+}
+span.CharOverride-5 {
+	color:#282829;
+	font-size:12px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.CharOverride-6 {
+	color:#282829;
+	font-style:normal;
+	font-weight:bold;
+}
+div._idGenObjectStyleOverride-1 {
+	border-width:0px;
+}
