@@ -99,18 +99,18 @@ margin-top: 80px;
 
 	
 var myStyle = {
-    "color": "#ff7800",
-    "weight": 5,
+    "color": "#808b9e",
+    "weight": .5,
     "opacity": 0.65
 	}
 		
 	
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
-    L.geoJson(ThomsonVanBuren,).addTo(mymap);
-    L.geoJson(skycenter,).addTo(mymap);
+    L.geoJson(ThomsonVanBuren,{style: myStyle}).addTo(mymap);
+    L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
        L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
-        L.geoJson(mtaroutet,).addTo(mymap);
-        L.geoJson(zoningareamap,).addTo(mymap);
+        L.geoJson(mtaroutet,{style: myStyle}).addTo(mymap);
+        L.geoJson(zoningareamap,{style: myStyle}).addTo(mymap);
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
 	maxZoom: 19,
