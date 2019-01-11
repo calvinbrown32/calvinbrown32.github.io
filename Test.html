@@ -106,34 +106,20 @@ var myStyle = {
     "weight": 2.5,
     "opacity": 7,
 	}
-
-var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
-    L.geoJson(ThomsonVanBuren,{style: myStyle, onEachFeature: onEachFeature}).addTo(mymap);
-    L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
-    L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
-    L.geoJson(mtaroutet,{style: myStyle}).addTo(mymap);
-    L.geoJson(zoningareamap,{style: myStyle}).addTo(mymap);
+		
 	
+var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
+    L.geoJson(ThomsonVanBuren,{style: myStyle}).addTo(mymap);
+    L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
+       L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
+        L.geoJson(mtaroutet,{style: myStyle}).addTo(mymap);
+        L.geoJson(zoningareamap,{style: myStyle}).addTo(mymap);
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
 	maxZoom: 19,
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	subdomains: 'abcd'
 	}).addTo(mymap);
-		
-// --onEachFeatureFunction-- -- adds popup content to geojson features upon click. --	
-	function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent? -- CB - Yes, my popup Content will be "name", which will include a link to the project page. 
-    	if (feature.properties && feature.properties.name) {
-			name += feature.properties.popupContent;
-		}
-
-		layer.bindPopup(name);
-    }
-}
-
-
-	
 </script>
 </div>
 
