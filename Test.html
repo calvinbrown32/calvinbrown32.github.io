@@ -124,11 +124,18 @@ function onEachFeature(feature, layer) {
 		onEachFeature: onEachFeature
    }).addTo(mymap);
 	
+	  L.geoJSON(mtaroutet,{style: myStyle, 
+		onEachFeature: onEachFeature
+   }).addTo(mymap);
 	
- 	L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
+	 L.geoJSON(zoningareamap,{style: myStyle, 
+		onEachFeature: onEachFeature
+   }).addTo(mymap);
+	
+// 	L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
 //	L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
-        L.geoJSON(mtaroutet,{style: myStyle}).addTo(mymap);
-        L.geoJson(zoningareamap,{style: myStyle}).addTo(mymap);
+//        L.geoJSON(mtaroutet,{style: myStyle}).addTo(mymap);
+//        L.geoJson(zoningareamap,{style: myStyle}).addTo(mymap);
 	
 	
 // --Carto Tile Layer--
