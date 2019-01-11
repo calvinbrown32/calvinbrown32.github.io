@@ -116,9 +116,6 @@ function onEachFeature(feature, layer) {
     }
 }
 	
-	  L.geoJSON(ThomsonVanBuren,{style: myStyle, 
-	    onEachFeature: onEachFeature
-    }).addTo(mymap).bringToFront();
 	
 	  L.geoJSON(licpedmap,{style: myStyle, 
 		onEachFeature: onEachFeature
@@ -132,9 +129,14 @@ function onEachFeature(feature, layer) {
 		onEachFeature: onEachFeature
    }).addTo(mymap);
 	
+	  L.geoJSON(ThomsonVanBuren,{style: myStyle, 
+	    onEachFeature: onEachFeature
+    }).addTo(mymap).bringToFront();
+	
 	L.geoJSON(skycenter,{style: myStyle, 
 		onEachFeature: onEachFeature
    }).addTo(mymap);
+	
 	
 // 	L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
 //	L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
