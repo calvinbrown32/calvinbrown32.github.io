@@ -116,7 +116,7 @@ function onEachFeature(feature, layer) {
     }
 }
 	
-	  L.geoJSON(ThomsonVanBuren, {
+	  L.geoJSON(ThomsonVanBuren,{style: myStyle}, {
 	    onEachFeature: onEachFeature
     }).addTo(mymap);
 	
