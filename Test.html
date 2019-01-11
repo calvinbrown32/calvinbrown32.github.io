@@ -113,11 +113,11 @@ L.geoJSON(geojsonFeature, {
 
 
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
-    L.geoJson(ThomsonVanBuren,{style: myStyle}, {onEachFeature: onEachFeature}).addTo(mymap);
-    L.geoJson(skycenter,{style: myStyle}, {onEachFeature: onEachFeature}).addTo(mymap);
-    L.geoJson(licpedmap,{style: myStyle}, {onEachFeature: onEachFeature}).addTo(mymap);
-    L.geoJson(mtaroutet,{style: myStyle}, {onEachFeature: onEachFeature}).addTo(mymap);
-    L.geoJson(zoningareamap,{style: myStyle}, {onEachFeature: onEachFeature}).addTo(mymap);
+    L.geoJson(ThomsonVanBuren,{style: myStyle, onEachFeature: onEachFeature}).addTo(mymap);
+    L.geoJson(skycenter,{style: myStyle, onEachFeature: onEachFeature}).addTo(mymap);
+    L.geoJson(licpedmap,{style: myStyle, onEachFeature: onEachFeature}).addTo(mymap);
+    L.geoJson(mtaroutet,{style: myStyle, onEachFeature: onEachFeature}).addTo(mymap);
+    L.geoJson(zoningareamap,{style: myStyle, onEachFeature: onEachFeature}).addTo(mymap);
 	
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
