@@ -107,11 +107,6 @@ var myStyle = {
     "opacity": 7,
 	}
 
-L.geoJSON(geojsonFeature, {
-    onEachFeature: onEachFeature
-}).addTo(map);
-
-
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
     L.geoJson(ThomsonVanBuren,{style: myStyle, onEachFeature: onEachFeature}).addTo(mymap);
     L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
