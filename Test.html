@@ -109,9 +109,19 @@ var myStyle = {
 	
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
 	
+function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent);
+    }
+}
+	
+	  L.geoJSON(ThomsonVanBuren, {
+	    onEachFeature: onEachFeature
+    }).addTo(mymap);
 	
 	
-    L.geoJson(ThomsonVanBuren,{style: myStyle}).addTo(mymap);
+	
     L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
        L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
         L.geoJson(mtaroutet,{style: myStyle}).addTo(mymap);
