@@ -118,7 +118,7 @@ function onEachFeature(feature, layer) {
 	
 	  L.geoJSON(ThomsonVanBuren,{style: myStyle, 
 	    onEachFeature: onEachFeature
-    }).addTo(mymap);
+    }).addTo(mymap).bringToFront();
 	
 	  L.geoJSON(licpedmap,{style: myStyle, 
 		onEachFeature: onEachFeature
