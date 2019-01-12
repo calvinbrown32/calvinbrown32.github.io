@@ -5,7 +5,7 @@ var ThomsonVanBuren = {
       "type": "Feature",
       "properties":
       {
-        "popupContent": <h4 class="adjust"><a href="https://calvinbrown32.github.io/visualizingcalmerintersections"> Visualizing Calmer Intersections</a> <br>
+        "popupContent": <h4><a href="https://calvinbrown32.github.io/visualizingcalmerintersections"> Visualizing Calmer Intersections</a> <br>
 <small><i>Thomson Avenue, Van Dam Street, and Queens Boulevard</small></i></h4>
       },
       "geometry": {
