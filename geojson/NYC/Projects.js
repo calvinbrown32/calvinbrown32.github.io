@@ -43,7 +43,7 @@ var skycenter = {
       "type": "Feature",
       "properties": 
       {
-        "popupContent": '<h5><center><a href="https://calvinbrown32.github.io/33rdstskycenter"></center></h5> 33rd Street Sky Center </a></h5></center>'
+        "popupContent": '<h5><center><a href="https://calvinbrown32.github.io/33rdstskycenter">33rd Street Sky Center</a></h5></center>'
       },
       "geometry": {
         "type": "Polygon",
