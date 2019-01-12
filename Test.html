@@ -97,6 +97,25 @@ margin-top: 80px;
 
 </div>
 	
+//----------------------------------------------------
+	//js mouseover
+	
+<p>This example demonstrates how to assign an "onmouseover" and "onmouseout" event to a h1 element.</p>
+
+<h1 id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()">Mouse over me</h1>
+
+<script>
+function mouseOver() {
+  document.getElementById("demo").style.color = "red";
+}
+
+function mouseOut() {
+  document.getElementById("demo").style.color = "black";
+}
+</script>
+	
+//----------------------------------------------------
+
 
 <div id="mapid" class="col-md-6 topmarginadjust" style="width: 375px; height: 475px;"></div>
 <script>
