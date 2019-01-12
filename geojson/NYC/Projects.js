@@ -5,7 +5,7 @@ var ThomsonVanBuren = {
       "type": "Feature",
       "properties":
       {
-        "popupContent": '<a href="https://calvinbrown32.github.io/visualizingcalmerintersections"> Visualizing Calmer Intersections</a>'
+        "popupContent": '<h5><center><a href="https://calvinbrown32.github.io/visualizingcalmerintersections"> Visualizing Calmer Intersections</a></center></h5>'
       },
       "geometry": {
         "type": "Polygon",
