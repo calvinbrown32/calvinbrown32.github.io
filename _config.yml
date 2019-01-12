@@ -24,7 +24,7 @@ description: Urban Planner, Freelance Cartographer, Transit and Safe Streets Adv
 
 # List of links in the navigation bar
 navbar-links:
-  Contact: <a href="mailto:calvinbrown32@gmail.com"</a>
+  Contact: "<a href="mailto:calvinbrown32@gmail.com</a>"
   #About: "aboutme"
   Resume: "resume"
   
