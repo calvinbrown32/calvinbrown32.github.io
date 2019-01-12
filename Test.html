@@ -96,26 +96,6 @@ margin-top: 80px;
 	<small><i>Published in the Hunter College Urban Review spring 2017 edition</small></i></h4>
 
 </div>
-	
-/*----------------------------------------------------
-	//js mouseover
-	
-<p>This example demonstrates how to assign an "onmouseover" and "onmouseout" event to a h1 element.</p>
-
-<h1 id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()">Mouse over me</h1>
-
-<script>
-function mouseOver() {
-  document.getElementById("demo").style.color = "red";
-}
-
-function mouseOut() {
-  document.getElementById("demo").style.color = "black";
-}
-</script>
-	
-//----------------------------------------------------*/
-
 
 <div id="mapid" class="col-md-6 topmarginadjust" style="width: 375px; height: 475px;"></div>
 <script>
@@ -125,7 +105,13 @@ var myStyle = {
     "weight": 2.5,
     "opacity": 7,
 	}
-	
+
+var myStyleHover = {
+	"color": "#0000EE",
+	"weight": 2.5,
+        "opacity": 7,
+	}
+
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
 	
 function onEachFeature(feature, layer) {
@@ -172,6 +158,23 @@ function onEachFeature(feature, layer) {
 	
 
 </script>
+	
+		
+/*----------------------------------------------------
+	//js mouseover
+	
+id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()"
+
+<script>
+function mouseOver() {
+  document.getElementById("demo").style.color = "red";
+}
+
+function mouseOut() {
+  document.getElementById("demo").style.color = "black";
+}
+</script>
+	
 </div>
 
 </body>
