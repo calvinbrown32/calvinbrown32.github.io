@@ -5,7 +5,7 @@ var ThomsonVanBuren = {
       "type": "Feature",
       "properties":
       {
-        "popupContent": "Visualizing Calmer Intersections: Van Dam St., Queens Blvd., and Thomson Ave."
+        "popupContent": '<a href="https://calvinbrown32.github.io/visualizingcalmerintersections"> Visualizing Calmer Intersections</a>'
       },
       "geometry": {
         "type": "Polygon",
