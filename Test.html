@@ -135,7 +135,7 @@ function onEachFeature(feature, layer) {
 }
 	
 	
-	  L.geoJSON(licpedmap,{style: myStyle, 
+	var licpedmap = L.geoJSON(licpedmap,{style: myStyle, 
 		onEachFeature: onEachFeature
    }).addTo(mymap);
 	
