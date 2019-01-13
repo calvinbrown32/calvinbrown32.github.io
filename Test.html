@@ -147,16 +147,6 @@ function onEachFeature(feature, layer) {
    }).addTo(mymap);
 	
 	
-<script>
-function mouseOver() {
-  document.getElementById(licpedmap).style.color = "red";
-}
-
-function mouseOut() {
-  document.getElementById(licpedmap).style.color = "black";
-}
-</script>
-	
 	
 // 	L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
 //	L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
@@ -172,6 +162,17 @@ function mouseOut() {
 	}).addTo(mymap);	
 
 </script>
+	
+<script>
+function mouseOver() {
+  document.getElementById(licpedmap).style.color = "red";
+}
+
+function mouseOut() {
+  document.getElementById(licpedmap).style.color = "black";
+}
+</script>
+	
 </body>
 </html>
 	
