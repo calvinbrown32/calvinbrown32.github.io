@@ -99,15 +99,6 @@ margin-top: 80px;
 </div>
 	
 
-<script>
-function mouseOver() {
-  document.getElementById(licpedmap).style.color = "red";
-}
-
-function mouseOut() {
-  document.getElementById(licpedmap).style.color = "black";
-}
-</script>
 	
 
 <div id="mapid" class="col-md-6 topmarginadjust" style="width: 375px; height: 475px;"></div>
@@ -154,6 +145,17 @@ function onEachFeature(feature, layer) {
 	L.geoJSON(skycenter,{style: myStyle, 
 		onEachFeature: onEachFeature
    }).addTo(mymap);
+	
+	
+<script>
+function mouseOver() {
+  document.getElementById(licpedmap).style.color = "red";
+}
+
+function mouseOut() {
+  document.getElementById(licpedmap).style.color = "black";
+}
+</script>
 	
 	
 // 	L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
