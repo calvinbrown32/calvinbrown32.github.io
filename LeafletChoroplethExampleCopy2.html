@@ -82,7 +82,7 @@ var myStyleHover = {
 			click: zoomToFeature
 		});
 	}
-	geojson = L.geoJson(statesData, {
+	geojson = L.geoJson(projectdata, {
 		style: style,
 		onEachFeature: onEachFeature
 	}).addTo(map);
