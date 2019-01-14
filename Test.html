@@ -130,19 +130,19 @@ function onEachFeature(feature, layer) {
 		onEachFeature: onEachFeature
    }).addTo(mymap);
 	
-	  L.geoJSON(mtaroutet,{style: myStyle, 
+	 var licpedmap = L.geoJSON(mtaroutet,{style: myStyle, 
 		onEachFeature: onEachFeature
    }).addTo(mymap);
 	
-	 L.geoJSON(zoningareamap,{style: myStyle, 
+	 var zoningareamap = L.geoJSON(zoningareamap,{style: myStyle, 
 		onEachFeature: onEachFeature
    }).addTo(mymap);
 	
-	  L.geoJSON(ThomsonVanBuren,{style: myStyle, 
+	 var ThomsonVanBuren = L.geoJSON(ThomsonVanBuren,{style: myStyle, 
 	    onEachFeature: onEachFeature
     }).addTo(mymap).bringToFront();
 	
-	L.geoJSON(skycenter,{style: myStyle, 
+	var skycenter = L.geoJSON(skycenter,{style: myStyle, 
 		onEachFeature: onEachFeature
    }).addTo(mymap);
 	
