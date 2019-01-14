@@ -101,7 +101,7 @@ function style(feature) {
 function highlightFeature(e) {
 	var layer = e.target;
 	
-	layer.setStyle(myStyleHover);
+	layer.setStyle({myStyleHover});
 	
 	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 		layer.bringToFront();
@@ -124,7 +124,7 @@ function OnEachFeature(feature, layer) {
 	});
 }
 	
-	geojson = L.geoJson(licpedmap, {style:style, 
+	geojson = L.geoJson(licpedmap, {style: style, 
 			onEachFeature: onEachFeature
 		}).addTo(mymap);		
 		
