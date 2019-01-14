@@ -1,4 +1,4 @@
-var ThomsonVanBuren = {
+var ThomsonVanDam = {
   "type": "FeatureCollection",
   "features": [
     {
