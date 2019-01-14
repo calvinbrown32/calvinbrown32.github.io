@@ -96,7 +96,37 @@ function style(feature) {
 }
 	L.geoJson(mtaroutet, {style: style}).addTo(mymap);
 	
+var geojson;
+ geojson = L.geoJson(...);
+		     
+function highlightFeature(e) {
+	var layer = e.target;
 	
+	layer.setStyle(myStyleHover);
+	
+	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+		layer.bringToFront();
+	}
+}
+
+function resetHighlight(e) {
+	geojson.resetStyle(e.target);
+}
+	
+function zoomToFeature(e) {
+	map.fitBounds(e.target.getBounds());
+}
+function OnEachFeature(feature, layer) {
+	layer.on({
+		mouseover: highlightFeature
+		mouseout: resetHighlight, 
+		click:zoomToFeature
+	});
+}
+	
+	geojson = L.geoJson(licpedmap, {style:style, 
+			onEachFeature: onEachFeature
+		}).addTo(mymap);		
 		
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
