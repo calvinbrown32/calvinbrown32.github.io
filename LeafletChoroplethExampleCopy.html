@@ -48,41 +48,38 @@ subtitle:
 		id: 'mapbox.light'
 	}).addTo(map);
 
-
+var myStyle = {
+    "color": "#132759",
+    "weight": 2.5,
+    "opacity": 7,
+	}
+var myStyleHover = {
+	"color": "#0000EE",
+	"weight": 2.5,
+   	"opacity": 7,
+	}
 	
 	function style(feature) {
-		return {
-			weight: 2,
-			opacity: 1,
-			color: 'white',
-			dashArray: '3',
-			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.density)
-		};
+		return (myStyle);
 	}
 
 	function highlightFeature(e) {
 		var layer = e.target;
 
-		layer.setStyle({
-			weight: 5,
-			color: '#666',
-			dashArray: '',
-			fillOpacity: 0.7
-		});
+		layer.setStyle(myStyleHover);
 
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 			layer.bringToFront();
 		}
 
-		info.update(layer.feature.properties);
+		
 	}
 
 	var geojson;
 
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target);
-		info.update();
+		
 	}
 
 	function zoomToFeature(e) {
@@ -103,31 +100,6 @@ subtitle:
 	}).addTo(map);
 
 	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
-
-
-	var legend = L.control({position: 'bottomright'});
-
-	legend.onAdd = function (map) {
-
-		var div = L.DomUtil.create('div', 'info legend'),
-			grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-			labels = [],
-			from, to;
-
-		for (var i = 0; i < grades.length; i++) {
-			from = grades[i];
-			to = grades[i + 1];
-
-			labels.push(
-				'<i style="background:' + getColor(from + 1) + '"></i> ' +
-				from + (to ? '&ndash;' + to : '+'));
-		}
-
-		div.innerHTML = labels.join('<br>');
-		return div;
-	};
-
-	legend.addTo(map);
 
 </script>
 
