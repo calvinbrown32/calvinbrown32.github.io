@@ -23,6 +23,7 @@ subtitle: Urban Planner, Freelance Cartographer, Transit and Safe Streets Advoca
 
 <style>
 	
+
 	
 h4.adjust 
 {
@@ -52,14 +53,13 @@ margin-top: 80px;
 	
 
 <body>
-	
 
 <div class="col-sm-6">
-<h2 id="demo" class="text-center lineheightadjust doubletracking" onmouseover="mouseOver()" onmouseout="mouseOut()"> Projects </h2> 
+<h2 class="text-center lineheightadjust doubletracking"> Projects  </h2> 
 <h4 class="adjust"><a href="https://calvinbrown32.github.io/secondavesubway">Mapping the Myth of the Second Avenue Subway</a></h4> 
 <h4 class="adjust"><a href="https://calvinbrown32.github.io/dcpareamap"> Department of City Planning Area Map </a></h4> 
 <h4 class="adjust"><a href="https://calvinbrown32.github.io/dangerouscorridorslic"> Dangerous Corridors in East Long Island City</a></h4> 
-<h4 onmouseover="mouseOver()" onmouseout="mouseOut()" class="adjust"><a href="https://calvinbrown32.github.io/saferstreetslic"> Safer Streets for East Long Island City</a> <br>
+<h4 class="adjust"><a href="https://calvinbrown32.github.io/saferstreetslic"> Safer Streets for East Long Island City</a> <br>
 	<small><i> general recommendations </small></i></h4>
 	<h4 class="adjust"><a href="https://calvinbrown32.github.io/33rdstskycenter"> 33rd Street Sky Center </a><br>
 	<small><i>Vision for an improved 33rd St. - Rawson St. 7 line station</small></i></h4>
@@ -70,6 +70,7 @@ margin-top: 80px;
 
 </div>
 	
+
 <div id="mapid" class="col-md-6 topmarginadjust" style="width: 375px; height: 475px;"></div>
 <script>
 	
@@ -78,27 +79,17 @@ var myStyle = {
     "weight": 2.5,
     "opacity": 7,
 	}
-
-var myStyleHover = {
-	"color": "#0000EE",
-	"weight": 2.5,
-        "opacity": 7,
-	}
-
-var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
-
 	
-
+var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
+		
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
 	maxZoom: 19,
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	subdomains: 'abcd'
 	}).addTo(mymap);	
-
-</body>
-</html>
 	
+</script>
 </div>
 
 </body>
