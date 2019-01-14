@@ -96,8 +96,7 @@ function style(feature) {
 }
 	L.geoJson(mtaroutet, {style: style}).addTo(mymap);
 	
-var geojson;
- geojson = L.geoJson(...);
+
 		     
 function highlightFeature(e) {
 	var layer = e.target;
@@ -109,6 +108,7 @@ function highlightFeature(e) {
 	}
 }
 
+var geojson;
 function resetHighlight(e) {
 	geojson.resetStyle(e.target);
 }
