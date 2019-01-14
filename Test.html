@@ -23,34 +23,6 @@ subtitle: Urban Planner, Freelance Cartographer, Transit and Safe Streets Advoca
 
 <style>
 	
-/*
-	.center {
-  margin: auto;
-  width: 60%;
-  padding: 10px;
-}
-	
-	
-	.first-column {
-    width: 45%;
-    float: left;
-}
-.second-column {
-    width: 55%;
-    float: left;
-}
-/*@media only screen and (max-width: 800px) {
-   .first-column {
-        width: 100%;
-        padding-bottom: 10px;
-        float: none;
-    }
-    .second-column {
-        width: 100%;
-        padding-bottom: 10px;
-        float: none;
-    }
-    */
 	
 h4.adjust 
 {
@@ -117,42 +89,11 @@ var myStyleHover = {
 	}
 
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
+
 	
-function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
-    if (feature.properties && feature.properties.popupContent) {
-        layer.bindPopup(feature.properties.popupContent);
-    }
-}
+
 	
-	
-	var licpedmap = L.geoJSON(licpedmap,{style: myStyle, 
-		onEachFeature: onEachFeature
-   }).addTo(mymap);
-	
-	 var licpedmap = L.geoJSON(mtaroutet,{style: myStyle, 
-		onEachFeature: onEachFeature
-   }).addTo(mymap);
-	
-	 var zoningareamap = L.geoJSON(zoningareamap,{style: myStyle, 
-		onEachFeature: onEachFeature
-   }).addTo(mymap);
-	
-	 var ThomsonVanBuren = L.geoJSON(ThomsonVanBuren,{style: myStyle, 
-	    onEachFeature: onEachFeature
-    }).addTo(mymap).bringToFront();
-	
-	var skycenter = L.geoJSON(skycenter,{style: myStyle, 
-		onEachFeature: onEachFeature
-   }).addTo(mymap);
-	
-	
-	
-// 	L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
-//	L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
-//        L.geoJSON(mtaroutet,{style: myStyle}).addTo(mymap);
-//        L.geoJson(zoningareamap,{style: myStyle}).addTo(mymap);
-	
+
 	
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -161,18 +102,6 @@ function onEachFeature(feature, layer) {
 	subdomains: 'abcd'
 	}).addTo(mymap);	
 
-</script>
-	
-<script>
-function mouseOver() {
-  document.getElementById(licpedmap).style.myStyleHover;
-}
-
-function mouseOut() {
-  document.getElementById(licpedmap).style.myStyle;
-}
-</script>
-	
 </body>
 </html>
 	
