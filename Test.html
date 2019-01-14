@@ -83,6 +83,11 @@ var myStyle = {
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
 	
 	 L.geoJSON([licpedmap,skycenter],{style: myStyle}).addTo(mymap).bringToFront();
+	
+function style(feature) {
+	return {myStyleHover};
+}
+	L.geoJson(mtaroutet, {style: style}).addTo(mymap);
 		
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
