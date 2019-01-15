@@ -105,14 +105,15 @@ function style(feature) {
 		geojson.resetStyle(e.target);
 	}
 	
-	function zoomToFeature(e) {
-		mymap.fitBounds(e.target.getBounds());
-	}
+	// function zoomToFeature(e) {
+	//	mymap.fitBounds(e.target.getBounds());
+	//}
+	
 	function onEachFeature(feature, layer) {
-		layer.on({
-			mouseover: highlightFeature,
-			mouseout: resetHighlight,
-		});
+	//	layer.on({
+	//		mouseover: highlightFeature,
+	//		mouseout: resetHighlight,
+	//	});
  	if (feature.properties && feature.properties.popupContent) {
         layer.bindPopup(feature.properties.popupContent});
 	}
