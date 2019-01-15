@@ -109,14 +109,13 @@ function style(feature) {
 		mymap.fitBounds(e.target.getBounds());
 	}
 	function onEachFeature(feature, layer) {
-		 // does this feature have a property named popupContent?
-    if (feature.properties && feature.properties.popupContent) {
-        layer.bindPopup(feature.properties.popupContent});,
-	layer.on({
+		layer.on({
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: zoomToFeature, 
 		});
+		 // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent});
 	}
 	
 
