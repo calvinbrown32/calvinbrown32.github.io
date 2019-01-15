@@ -74,13 +74,7 @@ margin-top: 80px;
 <div id="mapid" class="col-md-6 topmarginadjust" style="width: 375px; height: 475px;"></div>
 <script>
 	
-var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
-// --Carto Tile Layer--
-	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd'
-	}).addTo(mymap);	
+var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);	
 	
 var myStyle = {
     "color": "#132759",
@@ -134,6 +128,13 @@ function style(feature) {
 	
 	
 	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+	
+	// --Carto Tile Layer--
+	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd'
+	}).addTo(mymap);
 </script>
 
 </div>
