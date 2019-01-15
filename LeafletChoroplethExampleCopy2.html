@@ -70,12 +70,12 @@ var myStyleHover = {
 		
 	}
 	var geojson;
-	//function resetHighlight(e) {
-	//	geojson.resetStyle(e.target);
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
 		
 	//	 info.update();
 		
-	//}
+	}
 	function zoomToFeature(e) {
 		map.fitBounds(e.target.getBounds());
 	}
