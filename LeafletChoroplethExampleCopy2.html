@@ -108,6 +108,15 @@ info.update = function (props) {
 			   
 info.addTo(map);
 	
+	var geojsonLayer = L.geoJson(data,{
+    onEachFeature: function(feature, layer) {
+        layer._leaflet_id = feature.id;                                    
+    }});
+geojsonLayer.addTo(map);
+
+feature = geojsonLayer.getLayer(12345); //your feature id here
+alert(feature.feature.id);
+	
 	
 	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 </script>
