@@ -74,6 +74,14 @@ margin-top: 80px;
 <div id="mapid" class="col-md-6 topmarginadjust" style="width: 375px; height: 475px;"></div>
 <script>
 	
+var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
+// --Carto Tile Layer--
+	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd'
+	}).addTo(mymap);	
+	
 var myStyle = {
     "color": "#132759",
     "weight": 2.5,
@@ -85,7 +93,7 @@ var myStyleHover = {
    	"opacity": 7,
 	}
 	
-var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
+
 	
 function style(feature) {
 		return (myStyle);
