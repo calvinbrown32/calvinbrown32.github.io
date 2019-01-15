@@ -73,7 +73,7 @@ var myStyleHover = {
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target);
 		
-		 info.update();
+	//	 info.update();
 		
 	}
 	function zoomToFeature(e) {
@@ -84,7 +84,6 @@ var myStyleHover = {
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
 			click: zoomToFeature, 
-			click: highlightFeature,
 		});
 	}
 	geojson = L.geoJson(projectdata, {
