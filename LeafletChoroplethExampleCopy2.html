@@ -83,7 +83,8 @@ var myStyleHover = {
 		layer.on({
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: zoomToFeature
+			click: zoomToFeature, 
+			click: highlightFeature,
 		});
 	}
 	geojson = L.geoJson(projectdata, {
@@ -102,7 +103,7 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
     this._div.innerHTML = (props ?
-        '<b>' + props.popupContent : 'Hover over a feature');
+        '<b>' + props.popupContent : 'Click on a feature');
 };
 
 			   
