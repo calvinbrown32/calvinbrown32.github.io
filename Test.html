@@ -113,12 +113,10 @@ function style(feature) {
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
 		});
-		 // does this feature have a property named popupContent?
-   // if (feature.properties && feature.properties.popupContent) {
-   //     layer.bindPopup(feature.properties.popupContent});
+ 	if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent});
 	}
 	
-
 	geojson = L.geoJson(projectdata, {
 		style: style,
 		onEachFeature: onEachFeature
