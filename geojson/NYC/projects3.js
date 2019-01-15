@@ -1,4 +1,4 @@
-var projectsdata = {
+var projectdata = {
 "type": "FeatureCollection",
 "name": "projects3",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
