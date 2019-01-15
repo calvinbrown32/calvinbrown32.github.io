@@ -97,18 +97,14 @@ function style(feature) {
 		layer.setStyle(myStyleHover);
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 			layer.bringToFront();
-			
-		//	info.update(layer.feature.properties);
-		}
-		
+		}	
 	}
+	
 	var geojson;
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target);
-		
-	//	 info.update();
-		
 	}
+	
 	function zoomToFeature(e) {
 		mymap.fitBounds(e.target.getBounds());
 	}
@@ -119,6 +115,14 @@ function style(feature) {
 			click: zoomToFeature, 
 		});
 	}
+	
+	function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent);
+    }
+}
+	
 	geojson = L.geoJson(projectdata, {
 		style: style,
 		onEachFeature: onEachFeature
