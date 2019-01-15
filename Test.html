@@ -23,7 +23,34 @@ subtitle: Urban Planner, Freelance Cartographer, Transit and Safe Streets Advoca
 
 <style>
 	
-
+/*
+	.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+	
+	
+	.first-column {
+    width: 45%;
+    float: left;
+}
+.second-column {
+    width: 55%;
+    float: left;
+}
+/*@media only screen and (max-width: 800px) {
+   .first-column {
+        width: 100%;
+        padding-bottom: 10px;
+        float: none;
+    }
+    .second-column {
+        width: 100%;
+        padding-bottom: 10px;
+        float: none;
+    }
+    */
 	
 h4.adjust 
 {
@@ -79,55 +106,49 @@ var myStyle = {
     "weight": 2.5,
     "opacity": 7,
 	}
-
 var myStyleHover = {
 	"color": "#0000EE",
 	"weight": 2.5,
    	"opacity": 7,
 	}
-
 	
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
 	
-	 L.geoJSON([licpedmap,skycenter,ThomsonVanDam,zoningareamap,],{style: myStyle}).addTo(mymap).bringToFront();
-	
-function style(feature) {
-	return {myStyleHover};
-}
-	L.geoJson(mtaroutet, {style: style}).addTo(mymap);
-	
-
-		     
-function highlightFeature(e) {
-	var layer = e.target;
-	
-	layer.setStyle({myStyleHover});
-	
-	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-		layer.bringToFront();
-	}
-}
-
-var geojson;
-function resetHighlight(e) {
-	geojson.resetStyle(e.target);
+function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent);
+    }
 }
 	
-function zoomToFeature(e) {
-	map.fitBounds(e.target.getBounds());
-}
-function OnEachFeature(feature, layer) {
-	layer.on({
-		mouseover: highlightFeature
-		mouseout: resetHighlight, 
-		click:zoomToFeature
-	});
-}
 	
-	geojson = L.geoJson(licpedmap, {style: style, 
-			onEachFeature: onEachFeature
-		}).addTo(mymap);		
-		
+	  L.geoJSON(licpedmap,{style: myStyle, 
+		onEachFeature: onEachFeature
+   }).addTo(mymap);
+	
+	  L.geoJSON(mtaroutet,{style: myStyle, 
+		onEachFeature: onEachFeature
+   }).addTo(mymap);
+	
+	 L.geoJSON(zoningareamap,{style: myStyle, 
+		onEachFeature: onEachFeature
+   }).addTo(mymap);
+	
+	  L.geoJSON(ThomsonVanDam,{style: myStyle, 
+	    onEachFeature: onEachFeature
+    }).addTo(mymap).bringToFront();
+	
+	L.geoJSON(skycenter,{style: myStyle, 
+		onEachFeature: onEachFeature
+   }).addTo(mymap);
+	
+	
+// 	L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
+//	L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
+//        L.geoJSON(mtaroutet,{style: myStyle}).addTo(mymap);
+//        L.geoJson(zoningareamap,{style: myStyle}).addTo(mymap);
+	
+	
 // --Carto Tile Layer--
 	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
 	maxZoom: 19,
