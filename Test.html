@@ -110,10 +110,10 @@ function style(feature) {
 	//}
 	
 	function onEachFeature(feature, layer) {
-	//	layer.on({
-	//		mouseover: highlightFeature,
-	//		mouseout: resetHighlight,
-	//	});
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+		});
  	if (feature.properties && feature.properties.popupContent) {
         layer.bindPopup(feature.properties.popupContent);
 		}
