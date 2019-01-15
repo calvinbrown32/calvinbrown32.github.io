@@ -115,7 +115,8 @@ function style(feature) {
 	//		mouseout: resetHighlight,
 	//	});
  	if (feature.properties && feature.properties.popupContent) {
-        layer.bindPopup(feature.properties.popupContent});
+        layer.bindPopup(feature.properties.popupContent);
+		}
 	}
 	
 	geojson = L.geoJson(projectdata, {
