@@ -82,7 +82,7 @@ var myStyleHover = {
 	function onEachFeature(feature, layer) {
 		layer.on({
 			mouseover: highlightFeature,
-	//		mouseout: resetHighlight,
+			mouseout: resetHighlight,
 			click: zoomToFeature
 		});
 	}
@@ -105,9 +105,6 @@ info.update = function (props) {
         '<b>' + props.popupContent : 'Hover over a feature');
 };
 
-//			   this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
-//      '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
-//     : 'Hover over a state');
 			   
 info.addTo(map);
 	
