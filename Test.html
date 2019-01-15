@@ -87,7 +87,13 @@ var myStyleHover = {
    	"opacity": 7,
 	}
 	
-
+	function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent);
+    }
+}
+	
 	
 function style(feature) {
 		return (myStyle);
@@ -116,17 +122,11 @@ function style(feature) {
 		});
 	}
 	
-	function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
-    if (feature.properties && feature.properties.popupContent) {
-        layer.bindPopup(feature.properties.popupContent);
-    }
-}
-	
-	//geojson = L.geoJson(projectdata, {
-	//	style: style,
-	//	onEachFeature: onEachFeature
-	//}).addTo(mymap);
+
+	geojson = L.geoJson(projectdata, {
+		style: style,
+		onEachFeature: onEachFeature
+	}).addTo(mymap);
 	
 
 	
