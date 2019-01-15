@@ -9,7 +9,7 @@ subtitle: Urban Planner, Freelance Cartographer, Transit and Safe Streets Advoca
 <html>
 <head>
 
-	<title>First Web Map</title>
+	<title>Calvin Brown</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,34 +23,7 @@ subtitle: Urban Planner, Freelance Cartographer, Transit and Safe Streets Advoca
 
 <style>
 	
-/*
-	.center {
-  margin: auto;
-  width: 60%;
-  padding: 10px;
-}
-	
-	
-	.first-column {
-    width: 45%;
-    float: left;
-}
-.second-column {
-    width: 55%;
-    float: left;
-}
-/*@media only screen and (max-width: 800px) {
-   .first-column {
-        width: 100%;
-        padding-bottom: 10px;
-        float: none;
-    }
-    .second-column {
-        width: 100%;
-        padding-bottom: 10px;
-        float: none;
-    }
-    */
+
 	
 h4.adjust 
 {
@@ -114,49 +87,59 @@ var myStyleHover = {
 	
 var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);
 	
-function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
-    if (feature.properties && feature.properties.popupContent) {
-        layer.bindPopup(feature.properties.popupContent);
-    }
-}
-	
-	
-	  L.geoJSON(licpedmap,{style: myStyle, 
+function style(feature) {
+		return (myStyle);
+	}
+	function highlightFeature(e) {
+		var layer = e.target;
+		layer.setStyle(myStyleHover);
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+			
+			info.update(layer.feature.properties);
+		}
+		
+	}
+	var geojson;
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		
+	//	 info.update();
+		
+	}
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature, 
+		});
+	}
+	geojson = L.geoJson(projectdata, {
+		style: style,
 		onEachFeature: onEachFeature
-   }).addTo(mymap);
+	}).addTo(map);
 	
-	  L.geoJSON(mtaroutet,{style: myStyle, 
-		onEachFeature: onEachFeature
-   }).addTo(mymap);
-	
-	 L.geoJSON(zoningareamap,{style: myStyle, 
-		onEachFeature: onEachFeature
-   }).addTo(mymap);
-	
-	  L.geoJSON(ThomsonVanDam,{style: myStyle, 
-	    onEachFeature: onEachFeature
-    }).addTo(mymap).bringToFront();
-	
-	L.geoJSON(skycenter,{style: myStyle, 
-		onEachFeature: onEachFeature
-   }).addTo(mymap);
+	var info = L.control();
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML = (props ?
+        '<b>' + props.popupContent : 'Click on a feature');
+};
+			   
+info.addTo(map);
 	
 	
-// 	L.geoJson(skycenter,{style: myStyle}).addTo(mymap);
-//	L.geoJson(licpedmap,{style: myStyle}).addTo(mymap);
-//        L.geoJSON(mtaroutet,{style: myStyle}).addTo(mymap);
-//        L.geoJson(zoningareamap,{style: myStyle}).addTo(mymap);
-	
-	
-// --Carto Tile Layer--
-	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd'
-	}).addTo(mymap);	
-	
+	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 </script>
+
 </div>
 
 </body>
