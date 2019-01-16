@@ -88,14 +88,14 @@ subtitle: The Majority of Commuters Enter Manhattan on Public Transit
 
 	// get color depending on population density value
 	function getColor(d) {
-		return d > 1000 ? '#045A8D' :
-				d > 500  ? '#2B8CBE' :
-				d > 200  ? '#74A9CF' :
-				d > 100  ? '#A6BDDB' :
-				d > 50   ? '#D0D1E6' :
-				d > 20   ? '#F1EEF6' :
-				d > 10   ? '#F1EEF6' :
-							'#FFEDA0';
+		return d > 80 ? '#045A8D' :
+				d > 70  ? '#2B8CBE' :
+				d > 60  ? '#74A9CF' :
+				d > 50  ? '#A6BDDB' :
+				d > 40   ? '#D0D1E6' :
+				d > 0   ? '#F1EEF6' :
+				//d > 10   ? '#F1EEF6' :
+	//						'#FFEDA0';
 	}
 
 	function style(feature) {
