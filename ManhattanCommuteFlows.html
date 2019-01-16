@@ -105,7 +105,7 @@ subtitle: The Majority of Commuters Enter Manhattan on Public Transit
 			color: 'white',
 			dashArray: '3',
 			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.density)
+			fillColor: getColor(feature.properties.mode_share)
 		};
 	}
 
@@ -145,7 +145,7 @@ subtitle: The Majority of Commuters Enter Manhattan on Public Transit
 		});
 	}
 
-	geojson = L.geoJson(statesData, {
+	geojson = L.geoJson(commutedata, {
 		style: style,
 		onEachFeature: onEachFeature
 	}).addTo(map);
