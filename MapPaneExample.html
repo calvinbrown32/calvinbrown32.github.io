@@ -30,7 +30,7 @@
 
 <div id='map'></div>
 
-<script type="text/javascript" src='https://leafletjs.com/examples/map-panes/eu-countries.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/commuteflowintoman.js'></script>
 
 <script>
 
@@ -56,13 +56,13 @@
 		pane: 'labels'
 	}).addTo(map);
 
-	geojson = L.geoJson(euCountries).addTo(map);
+	geojson = L.geoJson(commutedata).addTo(map);
 
 	geojson.eachLayer(function (layer) {
 		layer.bindPopup(layer.feature.properties.name);
 	});
 
-	map.setView({ lat: 47.040182144806664, lng: 9.667968750000002 }, 4);
+	map.setView([40.751418432997454, -73.96047592163086], 7);
 </script>
 
 
