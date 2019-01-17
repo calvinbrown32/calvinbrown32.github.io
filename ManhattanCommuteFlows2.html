@@ -70,7 +70,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit to Ge
 	};
 	info.update = function (props) {
 		this._div.innerHTML = '<h5>Commutes into Manhattan: Transit Mode-Share</h5>' +  (props ?
-			'<b>' + props.name + ' County' + '</b><br />' + props.mode_share.toFixed(0) + ' percent' : 'Hover over a state');
+			'<b>' + props.name + ' County' + '</b><br />' + props.mode_share.toFixed(0) + ' percent of people commuting into Manhattan take public transit.' : 'Hover over a county');
 		
 		//'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
 		//	: 'Hover over a state');
