@@ -43,7 +43,7 @@ subtitle: The Majority of Commuters Enter Manhattan on Public Transit
 <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/commuteflowintoman.js'></script>
 
 <script type="text/javascript">
-	var map = L.map('map').setView([40.751418432997454, -73.96047592163086], 6);
+	var map = L.map('map').setView([40.751418432997454, -73.96047592163086], 7);
 	
 	
 	
@@ -70,7 +70,7 @@ subtitle: The Majority of Commuters Enter Manhattan on Public Transit
 	};
 	info.update = function (props) {
 		this._div.innerHTML = '<h5>Commutes into Manhattan: Transit Mode-Share</h5>' +  (props ?
-			'<b>' + props.name + '</b><br />' + props.density : 'Hover over a state');
+			'<b>' + props.name + '</b><br />' + props.mode_share + 'percent' : 'Hover over a state');
 		
 		//'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
 		//	: 'Hover over a state');
@@ -101,9 +101,9 @@ subtitle: The Majority of Commuters Enter Manhattan on Public Transit
 	function highlightFeature(e) {
 		var layer = e.target;
 		layer.setStyle({
-			weight: 5,
+			weight: 4,
 			color: '#666',
-			dashArray: '',
+			//dashArray: '',
 			fillOpacity: 0.7
 		});
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
