@@ -110,7 +110,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 			//dashArray: '',
 			fillOpacity: 0.8
 		});
-		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+		if (!L.Browser.ie || !L.Browser.opera || !L.Browser.edge) {
 			layer.bringToFront();
 		}
 		info.update(layer.feature.properties);
