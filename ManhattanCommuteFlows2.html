@@ -70,7 +70,7 @@ subtitle: The Majority of Commuters Enter Manhattan on Public Transit
 	};
 	info.update = function (props) {
 		this._div.innerHTML = '<h5>Commutes into Manhattan: Transit Mode-Share</h5>' +  (props ?
-			'<b>' + props.name + '</b><br />' + props.mode_share.toFixed(0) + ' percent of commuters take transit' : 'Hover over a state');
+			'<b>' + props.name + 'County' + '</b><br />' + props.mode_share.toFixed(0) + ' percent of commuters take transit' : 'Hover over a state');
 		
 		//'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
 		//	: 'Hover over a state');
@@ -93,7 +93,7 @@ subtitle: The Majority of Commuters Enter Manhattan on Public Transit
 			weight: 2,
 			opacity: 1,
 			color: 'white',
-			dashArray: '3',
+			//dashArray: '3',
 			fillOpacity: 0.7,
 			fillColor: getColor(feature.properties.mode_share)
 		};
