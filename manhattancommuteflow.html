@@ -35,7 +35,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 
 <div id='map'></div>
 
-<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/commuteflowintoman.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/modeshareandtotal.js'></script>
 
 <script>
 	var map = L.map('map');
@@ -74,7 +74,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 	};
 	info.update = function (props) {
 		this._div.innerHTML = '<h5>Commutes into Manhattan: Transit Mode-Share</h5>' +  (props ?
-			'<b>' + props.name + ' County' + '</b><br />' + props.transitmodeshare.toFixed(0) + ' percent of people commuting into Manhattan take public transit.' : 'Hover over a county');
+			'In ' + '<b>' + props.name + ' County </b>' + props.sum + ' people commute into Manhattan.' + '<br />' + props.transitmodeshare.toFixed(0) + ' percent of them take public transit.' : 'Hover over a county');
 		
 		//'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
 		//	: 'Hover over a state');
@@ -99,7 +99,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 			color: 'white',
 			//dashArray: '3',
 			fillOpacity: 0.8,
-			fillColor: getColor(feature.properties.mode_share)
+			fillColor: getColor(feature.properties.transitmodeshare)
 		};
 	}
 	function highlightFeature(e) {
