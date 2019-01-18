@@ -74,7 +74,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 	};
 	info.update = function (props) {
 		this._div.innerHTML = '<h5>Commutes into Manhattan: Transit Mode-Share</h5>' +  (props ?
-			'<b>' + props.name + ' County' + '</b><br />' + props.mode_share.toFixed(0) + ' percent of people commuting into Manhattan take public transit.' : 'Hover over a county');
+			'<b>' + props.name + ' County' + '</b><br />' + props.transitmodeshare.toFixed(0) + ' percent of people commuting into Manhattan take public transit.' : 'Hover over a county');
 		
 		//'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
 		//	: 'Hover over a state');
@@ -99,7 +99,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 			color: 'white',
 			//dashArray: '3',
 			fillOpacity: 0.8,
-			fillColor: getColor(feature.properties.mode_share)
+			fillColor: getColor(feature.properties.transitmodeshare)
 		};
 	}
 	function highlightFeature(e) {
