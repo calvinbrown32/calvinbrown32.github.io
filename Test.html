@@ -120,6 +120,18 @@ function style(feature) {
 		}
 	}
 	
+	var info = L.control();
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+	info.update = function (props) {
+		this._div.innerHTML = '<h5>Click on features for more info</h5>' +  
+	};
+	info.addTo(map);
+	
+	
 	geojson = L.geoJson(projectdata, {
 		style: style,
 		onEachFeature: onEachFeature
