@@ -279,9 +279,6 @@ labels = [],
 
 from, to;
   
-
-div.innerHTML = <H6>'Percentage Of Commuters That Take Transit'</h6>;
-
 for (var i = 0; i < grades.length; i++) {
 
 from = grades[i];
@@ -296,7 +293,9 @@ from + (to ? '&ndash;' + to : '+' + ' %'));
 
 }
 
-div.innerHTML = labels.join(' %' + '<br>');
+div.innerHTML = '<h6> Percentage of commuters who take transit</h6>' + '<br>' + labels.join(' %' + '<br>');
+  
+div.innerHTML = <H6>'Percentage Of Commuters That Take Transit'</h6>;
 
 return div;
 
