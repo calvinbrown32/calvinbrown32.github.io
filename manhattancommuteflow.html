@@ -148,7 +148,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 				'<i style="background:' + getColor(from + 1) + '"></i> ' +
 				from + (to ? '&ndash;' + to : '+' + '   %'));
 		}
-		div.innerHTML = '<p><b>Percentage Of Commuters Who Take Transit</b></p>' + labels.join(' %' + '<br>');
+		div.innerHTML = '<b>Percentage Of Commuters Who Take Transit</b>' + '<br>' + labels.join(' %' + '<br>');
 		return div;
 	};
 	legend.addTo(map);
