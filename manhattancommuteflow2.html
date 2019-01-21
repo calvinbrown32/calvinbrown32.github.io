@@ -73,7 +73,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 		return this._div;
 	};
 	info.update = function (props) {
-		this._div.innerHTML = '<h5>Commutes into Manhattan: Transit Mode-Share</h5>' +  (props ?
+		this._div.innerHTML = '<h5>The Commute Into Manhattan</h5>' +  (props ?
 			'In ' + '<b>' + props.name + ' County </b>' + props.sum + ' people commute into Manhattan.' + '<br />' + props.transitmodeshare.toFixed(0) + ' percent of them take public transit.' : 'Hover over a county');
 		
 		//'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
@@ -148,7 +148,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 				'<i style="background:' + getColor(from + 1) + '"></i> ' +
 				from + (to ? '&ndash;' + to : '+' + '   %'));
 		}
-		div.innerHTML = labels.join(' %' + '<br>');
+		div.innerHTML = '<p><b>Percentage Of Commuters Who Take Transit</b></p>' + labels.join(' %' + '<br>');
 		return div;
 	};
 	legend.addTo(map);
