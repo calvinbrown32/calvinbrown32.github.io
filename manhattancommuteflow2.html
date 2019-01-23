@@ -36,6 +36,8 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 <div id='map'></div>
 
 <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/modeshareandtotal.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/lirr.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/mnr.js'></script>
 
 <script>
 	var map = L.map('map');
@@ -154,6 +156,13 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 	legend.addTo(map);
 	
 	map.setView([40.751418432997454, -73.96047592163086], 7);
+	
+	geojson = L.geoJson(lirr, mnr {
+		style: style,
+	}).addTo(map);
+	
+	
+	
 </script>
 
 
