@@ -62,6 +62,8 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 	}).addTo(map);
 	
 	geojson = L.geoJson(commutedata).addTo(map);
+	geojson = L.geoJson(mnr).addTo(map);
+	geojson = L.geoJson(lirr).addTo(map);
 	
 	map.setView([40.751418432997454, -73.96047592163086], 7);
 	
@@ -156,9 +158,6 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 	legend.addTo(map);
 	
 	map.setView([40.751418432997454, -73.96047592163086], 7);
-	
-	geojson = L.geoJson(mnr, lirr).addTo(map);
-	
 	
 	
 </script>
