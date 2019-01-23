@@ -20,7 +20,7 @@ subtitle: Urban Planner, Freelance Cartographer, Transit and Safe Streets Advoca
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 
     <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/projects3.js'></script>
-    <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/lirrjs.js'></script>
+    <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/lirrreproject.js'></script>
     <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/mnr.js'></script>
 
 	
@@ -102,8 +102,8 @@ var myStyleHover = {
    	"opacity": 7,
 	}
 	
-	L.geoJson(lirrjs).addTo(mymap);
-//	L.geoJson(mnr).addTo(mymap);
+	L.geoJson(lirrreproject).addTo(mymap);
+	L.geoJson(mnr).addTo(mymap);
 
 	
 function style(feature) {
