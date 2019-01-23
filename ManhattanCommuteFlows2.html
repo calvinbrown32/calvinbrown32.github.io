@@ -127,9 +127,8 @@ pane: 'labels'
 //	}
 
 geojson = L.geoJson(commutedata).addTo(map);
-//  L.geoJson(lirrreproject, { color: "#f4000c",
-  //  weight: .5}).addTo(mymap);
-	//L.geoJson(mnr, { style: mnrstyle}).addTo(mymap);
+L.geoJson(lirrreproject).addTo(mymap);
+L.geoJson(mnr).addTo(mymap);
 
 map.setView([40.751418432997454, -73.96047592163086], 7);
 
