@@ -114,21 +114,8 @@ pane: 'labels'
 
 }).addTo(map);
 
-//var lirrstyle = {
-//    "color": "#0713ff",
- //   "weight": .5,
- //   "opacity": 7,
-//	}
-
-//var mnrstyle = {
-//    "color": "#f4000c",
- //   "weight": .5,
-//    "opacity": 7,
-//	}
-
 geojson = L.geoJson(commutedata).addTo(map);
-L.geoJson(lirrreproject).addTo(map);
-L.geoJson(mnr).addTo(map);
+
 
 map.setView([40.751418432997454, -73.96047592163086], 7);
 
@@ -312,7 +299,17 @@ return div;
 
 legend.addTo(map);
 
-
+L.geoJson(lirrreproject, {
+		color: "#0713ff",
+		weight: 1,
+   		opacity: 7,
+	}).addTo(mymap);
+	
+	L.geoJson(mnr, {
+		color: "#f4000c",
+		weight: 1,
+   		opacity: 7,
+	}).addTo(mymap);
 
 map.setView([40.751418432997454, -73.96047592163086], 7);
 
