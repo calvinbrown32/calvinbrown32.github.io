@@ -194,6 +194,7 @@ color: 'white',
 fillOpacity: 0.8,
 
 fillColor: getColor(feature.properties.transitmodeshare)
+	
 
 };
 
@@ -208,8 +209,6 @@ layer.setStyle({
 weight: 2,
 
 color: '#666',
-
-//dashArray: '',
 
 fillOpacity: 0.8
 
@@ -232,7 +231,18 @@ function resetHighlight(e) {
 geojson.resetStyle(e.target);
 
 info.update();
-
+	
+L.geoJson(lirrreproject, {
+		color: "#0713ff",
+		weight: 1,
+   		opacity: 7,
+	}).addTo(map);
+	
+	L.geoJson(mnr, {
+		color: "#f4000c",
+		weight: 1,
+   		opacity: 7,
+	}).addTo(map);
 }
 
 function zoomToFeature(e) {
