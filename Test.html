@@ -151,9 +151,20 @@ function style(feature) {
 		onEachFeature: onEachFeature
 	}).addTo(mymap);
 	
+	var lirrstyle = {
+	"color": "#0713ff",
+	"weight": .5,
+   	"opacity": 7,
+	}
 	
-	L.geoJson(lirrreproject).addTo(mymap);
-	L.geoJson(mnr).addTo(mymap);
+	var mnrstyle = {
+	"color": "#f4000c",
+	"weight": .5,
+   	"opacity": 7,
+	}
+	
+	L.geoJson(lirrreproject, {lirrstyle}).addTo(mymap);
+	L.geoJson(mnr, {mnrstyle}).addTo(mymap);
 	
 	
 	
