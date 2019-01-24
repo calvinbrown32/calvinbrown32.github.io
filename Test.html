@@ -151,19 +151,29 @@ function style(feature) {
 		onEachFeature: onEachFeature
 	}).addTo(mymap);
 	
-	var lirrstyle = {
-	"color": "#0713ff",
-	"weight": .5,
-   	"opacity": 7,
-	}
+//	var lirrstyle = {
+	//"color": "#0713ff",
+	//"weight": .5,
+   //	"opacity": 7,
+	//}
 	
-	var mnrstyle = {
-	"color": "#f4000c",
-	"weight": .5,
-   	"opacity": 7,
-	}
+	//var mnrstyle = {
+	//"color": "#f4000c",
+	//"weight": .5,
+   ///	"opacity": 7,
+	//}
+	//L.circle([51.508, -0.11], 500, {
+	//	color: 'red',
+	//	fillColor: '#f03',
+	//	fillOpacity: 0.5
+	//}).addTo(mymap)
 	
-	L.geoJson(lirrreproject, {lirrstyle}).addTo(mymap);
+	L.geoJson(lirrreproject, {
+		color: "#0713ff",
+		"weight": .5,
+   		"opacity": 7,
+	}).addTo(mymap);
+	
 	L.geoJson(mnr, {mnrstyle}).addTo(mymap);
 	
 	
