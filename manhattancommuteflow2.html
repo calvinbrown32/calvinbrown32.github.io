@@ -36,7 +36,7 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 <div id='map'></div>
 
 <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/modeshareandtotal.js'></script>
-<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/lirr.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/lirrreproject.js'></script>
 <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/mnr.js'></script>
 
 <script>
@@ -46,6 +46,28 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 	
 	// This pane is above markers but below popups
 	map.getPane('labels').style.zIndex = 650;
+	
+	map.createPane('lirr');
+	map.getPane('lirr').style.zIndex = 640;
+	map.createPane('mnr');
+	map.getPane('mnr').style.zIndex = 640;
+	
+	
+	var lirr = L.geoJson(lirrreproject, { 
+       		color: "#0713ff",
+     		weight: 1,
+      	        opacity: 7,
+      	        pane: 'lirr'
+   	}).addTo(map);
+
+    var mnr = L.geoJson(mnr, {
+        color: "#f4000c",
+        weight: 1,
+        opacity: 7,
+        pane: 'lirr'
+    }).addTo(map);
+
+	
 	
 	// Layers in this pane are non-interactive and do not obscure mouse/touch events
 	map.getPane('labels').style.pointerEvents = 'none';
@@ -62,8 +84,6 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 	}).addTo(map);
 	
 	geojson = L.geoJson(commutedata).addTo(map);
-	L.geoJson(mnr).addTo(map);
-	L.geoJson(lirr).addTo(map);
 	
 	map.setView([40.751418432997454, -73.96047592163086], 7);
 	
@@ -158,8 +178,6 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 	legend.addTo(map);
 	
 	map.setView([40.751418432997454, -73.96047592163086], 7);
-	
-	
 </script>
 
 
