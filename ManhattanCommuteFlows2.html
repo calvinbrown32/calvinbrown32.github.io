@@ -297,7 +297,7 @@ onEachFeature: onEachFeature
 
 }).addTo(map);
 
-map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+map.attributionControl.addAttribution('Commute Flow Data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
 var legend = L.control({position: 'bottomright'});
 
@@ -325,7 +325,7 @@ from + (to ? '&ndash;' + to : '+' + ' %'));
 
 }
 
-div.innerHTML = '<b>Percentage Of Commuters Who Take Transit</b>' + '<br>' + labels.join(' %' + '<br>') + '<br>' + '<p style="color:#0713ff;">─  Long Island Rail Road </p>' + '<br>' + '<p style="color:#f4000c;">─  Metro-North Railroad </p>' ;
+div.innerHTML = '<b>Percentage Of Commuters Who Take Transit</b>' + '<br>' + labels.join(' %' + '<br>') + '<br>' + '<p style="color:#0713ff;">─</p>  Long Island Rail Road ' + '<p style="color:#f4000c;">─</p>  Metro-North Railroad' ;
 
 return div;
 
