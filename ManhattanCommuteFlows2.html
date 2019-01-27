@@ -75,7 +75,6 @@ height: 400px;
 		<div class="container-fluid">
     <!-- Control the column width, and how they should appear on different devices -->
     <div class="row">
-	    <div class="col-sm-12"><img src="https://calvinbrown32.github.io/lirrmnrgraphics/lirrmnr.png" alt="lirrmnr" width= 100%> </div>
     <br>
 	    <br>
 	    <br>
@@ -104,7 +103,22 @@ height: 400px;
 
 var map = L.map('map');
 
-
+map.createPane('lirr');
+	map.getPane('lirr').style.zIndex = 640;
+	
+	var lirr = L.geoJson(lirrreproject, { 
+       		color: "#0713ff",
+     		weight: 1.2,
+      	        opacity: 7,
+      	        pane: 'lirr'
+   	}).addTo(map);
+	
+    var mnr = L.geoJson(mnr, {
+        color: "#f4000c",
+        weight: 1.2,
+        opacity: 7,
+        pane: 'lirr'
+    }).addTo(map);
 
 map.createPane('labels');
 
