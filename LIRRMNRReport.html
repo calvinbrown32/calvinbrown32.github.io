@@ -229,7 +229,7 @@ labels.push(
 '<i style="background:' + getColor(from + 1) + '"></i> ' +
 from + (to ? '&ndash;' + to : '+' + ' %'));
 }
-div.innerHTML = '<b>Percentage Of Commuters Who Take Transit</b>' + '<br>' + labels.join(' %' + '<br>') + '<br>' + '<span style="color:#0713ff;">──</span>  Long Island Rail Road ' + '<span style="color:#f4000c;">──</span>  Metro-North Railroad' + '<br>' + '<span style="color:#7c7c7c;">──</span>  New Jersey Transit' ;
+div.innerHTML = '<b>Percentage Of Commuters Who Take Transit</b>' + '<br>' + labels.join(' %' + '<br>') + '<br>' + '<span style="color:#0713ff;">──</span>  Long Island Rail Road ' + '<br>' + '<span style="color:#f4000c;">──</span>  Metro-North Railroad' + '<br>' + '<span style="color:#7c7c7c;">──</span>  New Jersey Transit' ;
 return div;
 };
 legend.addTo(map);
