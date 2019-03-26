@@ -103,7 +103,10 @@ To better understand New York City’s commuter rail and the role it plays in re
 
 <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/modeshareandtotal.js'></script>
 <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/lirrreproject.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/MNRFinal.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/njpassengertrain.js'></script>
 <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/mnr.js'></script>
+
 
 
 <script>
@@ -124,6 +127,22 @@ map.createPane('lirr');
         opacity: 7,
         pane: 'lirr'
     }).addTo(map);
+
+   var mnrfinal = L.geoJson(mnrfinal, {
+	color: "#f4000c",
+        weight: 1.2,
+        opacity: 7,
+        pane: 'lirr'
+    }).addTo(map);
+			
+   var njpassengertrain = L.geoJson(njpassengertrain, {
+	color: "#cccccc",
+        weight: .9,
+        opacity: 7,
+        pane: 'lirr'
+    }).addTo(map);
+			
+			
 map.createPane('labels');
 // This pane is above markers but below popups
 map.getPane('labels').style.zIndex = 650;
@@ -217,7 +236,7 @@ labels.push(
 '<i style="background:' + getColor(from + 1) + '"></i> ' +
 from + (to ? '&ndash;' + to : '+' + ' %'));
 }
-div.innerHTML = '<b>Percentage Of Commuters Who Take Transit</b>' + '<br>' + labels.join(' %' + '<br>') + '<br>' + '<span style="color:#0713ff;">──</span>  Long Island Rail Road ' + '<span style="color:#f4000c;">──</span>  Metro-North Railroad' ;
+div.innerHTML = '<b>Percentage Of Commuters Who Take Transit</b>' + '<br>' + labels.join(' %' + '<br>') + '<br>' + '<span style="color:#0713ff;">──</span>  Long Island Rail Road ' + '<span style="color:#f4000c;">──</span>  Metro-North Railroad' + '<span style="color:#cccccc;">──</span>  New Jersey Transit' ;
 return div;
 };
 legend.addTo(map);
