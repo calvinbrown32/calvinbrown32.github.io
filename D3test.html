@@ -5,15 +5,14 @@ layout: page
 #use-site-title: true
 ---
 
+
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-
-<!DOCTYPE html>
-<html>
-
 <head>
- <div id="graphic"></div>
+
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
   // Get the data
 <script>
 d3.csv("https://calvinbrown32.github.io/data/Pythondatavistest.csv", function(data) {
@@ -29,9 +28,7 @@ d3.csv("https://calvinbrown32.github.io/data/Pythondatavistest.csv", function(da
     }
   });
   </script>
-  
-  
-  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+ 
     <style>
         body {
             font-family: "Arial", sans-serif;
@@ -61,7 +58,7 @@ d3.csv("https://calvinbrown32.github.io/data/Pythondatavistest.csv", function(da
 <body>
 
     <div id="graphic"></div>
-
+<script>
         //sort bars based on value
         data = data.sort(function (a, b) {
             return d3.ascending(a.value, b.value);
