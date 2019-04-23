@@ -24,7 +24,7 @@
         </style>
     </head>
     <body>
-         <script src="//d3js.org/d3.v4.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <div id='vis-container'></div>
         <script type="text/javascript">
             // Load and munge data, then make the visualization.
@@ -53,9 +53,9 @@
                     height = 250 - margin.top  - margin.bottom;
 
                 // Make x scale
-              //  var xScale = d3.scale.ordinal()
-               //     .domain(nutritionFields)
-                //    .rangeRoundBands([0, width], 0.1);
+                var xScale = d3.scale.ordinal()
+                    .domain(nutritionFields)
+                    .rangeRoundBands([0, width], 0.1);
 
                 // Make y scale, the domain will be defined on bar update
                 var yScale = d3.scale.linear()
