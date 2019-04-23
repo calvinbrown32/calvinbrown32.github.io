@@ -31,7 +31,7 @@
             var fileName = "https://calvinbrown32.github.io/data/cerealscsv.csv";
             var nutritionFields = ["calories", "protein", "fat", "sodium", "fiber","carbs", "sugars", "potassium", "vitamins"];
 
-            d3.csv(fileName,function(error, data) {
+            d3.csv(fileName,function( data) {
                 var cerealMap = {};
                 data.forEach(function(d) {
                     var cereal = d.cereal;
