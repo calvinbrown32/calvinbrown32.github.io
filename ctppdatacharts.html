@@ -28,36 +28,6 @@
               
               console.log(countyMap);
              // console.log(countyMap[county]);
- <!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<style> /* set the CSS */
-.bar { fill: steelblue; }
-</style>
-<body>
-
-
-<script src="//d3js.org/d3.v5.min.js"></script>
-<div id="vis-container"></div>
-
-<script>
- 
-  var modeFields = ["Total", "Car, truck, or van - drove alone", "Car, truck, or van - carpooled", " Public transportation (excluding taxicab)", "Total: - Walked", "Taxicab, motorcycle, bicycle, or other means", "Worked at home"];
- 
- d3.csv("https://calvinbrown32.github.io/data/Pythondatavistest.csv").then(function(data) {
-              var countyMap = {};
-                data.forEach(function(d) {
-                    var county = d.County;
-                    countyMap[county] = [];
-                     
-                    // { countyName: [ bar1Val, bar2Val, ... ] }
-                    modeFields.forEach(function(field) {
-                       countyMap[county].push( +d[field] ); 
-                     
-                     });
-              
-              console.log(countyMap);
-             // console.log(countyMap[county]);
               });
               makeVis(countyMap);
                   });
@@ -168,56 +138,6 @@ var makeVis = function(countyMap) {
             };
 
 </script>
-
-</body>
-</html>
-                        .attr("class", "bar")
-                        .attr("x", function(d,i) { return xScale( nutritionFields[i] ); })
-                        .attr("width", xScale.rangeBand())
-                        .attr("y", function(d,i) { return yScale(d); })
-                        .attr("height", function(d,i) { return height - yScale(d); });
-
-                    // Update old ones, already have x / width from before
-                    bars
-                        .transition().duration(250)
-                        .attr("y", function(d,i) { return yScale(d); })
-                        .attr("height", function(d,i) { return height - yScale(d); });
-
-                    // Remove old ones
-                    bars.exit().remove();
-                };
-                
-                
-                // Handler for dropdown value change
-                var dropdownChange = function() {
-                    var newCounty = d3.select(this).property('value'),
-                        newData   = countyMap[newCounty];
-
-                    updateBars(newData);
-                };
-
-                // Get names of cereals, for dropdown
-                var counties = Object.keys(countyMap).sort();
-
-                var dropdown = d3.select("#vis-container")
-                    .insert("select", "svg")
-                    .on("change", dropdownChange);
-
-                dropdown.selectAll("option")
-                    .data(counties)
-                  .enter().append("option")
-                    .attr("value", function (d) { return d; })
-                    .text(function (d) {
-                        return d[0].toUpperCase() + d.slice(1,d.length); 
-                        // capitalize 1st letter
-                    });
-
-                var initialData = countyMap[ counties[0] ];
-                updateBars(initialData);
-            };
-
-</script>
- <p id="demo"></p>
 
 </body>
 </html>
