@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +12,7 @@
             display: block;
         }
         .bar {
-            fill: purple;
+            fill: green;
             opacity: 0.8;
         }
 
@@ -55,11 +54,11 @@
                 // Make x scale
                 var xScale = d3.scale.ordinal()
                     .domain(modeFields)
-                    .rangeRoundBands([0, width], 0.5);
+                    .rangeRoundBands([0, width], 0.7);
 
                 // Make y scale, the domain will be defined on bar update
                 var yScale = d3.scale.linear()
-                    .range([height, 0]);
+                    .range([150,0]);
 
                 // Create canvas
                 var canvas = d3.select("#vis-container")
@@ -73,16 +72,19 @@
                 var xAxis = d3.svg.axis()
                     .scale(xScale)
                     .orient("bottom");
+                     
 
                 canvas.append("g")
                     .attr("class", "x axis")
                     .attr("transform", "translate(0," + height + ")")
                     .call(xAxis);
+                    
 
                 // Make y-axis and add to canvas
                 var yAxis = d3.svg.axis()
                     .scale(yScale)
                     .orient("left");
+                    
 
                 var yAxisHandleForUpdate = canvas.append("g")
                     .attr("class", "y axis")
@@ -116,7 +118,7 @@
                         .transition().duration(250)
                         .attr("y", function(d,i) { return yScale(d); })
                         .attr("height", function(d,i) { return height - yScale(d); });
-
+						
                     // Remove old ones
                     bars.exit().remove();
                 };
