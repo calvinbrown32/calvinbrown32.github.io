@@ -1,56 +1,66 @@
 <!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<style> /* set the CSS */
-.bar { fill: steelblue; }
-</style>
-<body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>d3 Updating Bar Chart With Dropdown</title>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <style>
+        body {
+            font: 10px sans-serif;
+        }
+        select {
+            display: block;
+        }
+        .bar {
+            fill: purple;
+            opacity: 0.8;
+        }
 
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+        </style>
+    </head>
+    <body>
+        <div id='vis-container'></div>
+        <script type="text/javascript">
+            // Load and munge data, then make the visualization.
+            var fileName = "https://calvinbrown32.github.io/data/Pythondatavistest.csv";
+             var modeFields = ["Total", "Car, truck, or van - drove alone", "Car, truck, or van - carpooled", " Public transportation (excluding taxicab)", "Total: - Walked", "Taxicab, motorcycle, bicycle, or other means", "Worked at home"];
 
-<script src="//d3js.org/d3.v5.min.js"></script>
-<div id="vis-container"></div>
-
-<script>
- 
-  var modeFields = ["Total", "Car, truck, or van - drove alone", "Car, truck, or van - carpooled", " Public transportation (excluding taxicab)", "Total: - Walked", "Taxicab, motorcycle, bicycle, or other means", "Worked at home"];
- 
- d3.csv("https://calvinbrown32.github.io/data/Pythondatavistest.csv").then(function(data) {
-              var countyMap = {};
+            d3.csv(fileName, function(data) {
+                var countyMap = {};
                 data.forEach(function(d) {
-                    var county = d.County;
-                    countyMap[county] = [];
-                     
-                    // { countyName: [ bar1Val, bar2Val, ... ] }
-                    modeFields.forEach(function(field) {
-                       countyMap[county].push( +d[field] ); 
-                     
-                     });
-              
-              // console.log(countyMap);
-             // console.log(countyMap[county]);
-             //console.log(Object.keys(countyMap));
+                    var County = d.County;
+                    countyMap[County] = [];
 
-              });
-              makeVis(countyMap);
-                  });
+                    // { cerealName: [ bar1Val, bar2Val, ... ] }
+                   modeFields.forEach(function(field) {
+                        countyMap[County].push( +d[field] );
+                    });
+                });
+                makeVis(countyMap);
+            });
 
-var makeVis = function(countyMap) {
+            var makeVis = function(countyMap) {
                 // Define dimensions of vis
                 var margin = { top: 30, right: 50, bottom: 30, left: 50 },
                     width  = 550 - margin.left - margin.right,
                     height = 250 - margin.top  - margin.bottom;
-                    
-           // Make x scale
-                var xScale = d3.scaleBand()
+
+                // Make x scale
+                var xScale = d3.scale.ordinal()
                     .domain(modeFields)
-                    .rangeRound ([0, width]) 
-                    .padding (.1);
-                    
-           // Make y scale, the domain will be defined on bar update
-                var yScale = d3.scaleLinear()
+                    .rangeRoundBands([0, width], 0.1);
+
+                // Make y scale, the domain will be defined on bar update
+                var yScale = d3.scale.linear()
                     .range([height, 0]);
-                    
-                    // Create canvas
+
+                // Create canvas
                 var canvas = d3.select("#vis-container")
                   .append("svg")
                     .attr("width",  width  + margin.left + margin.right)
@@ -58,8 +68,7 @@ var makeVis = function(countyMap) {
                   .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-// Make x-axis and add to canvas
+                // Make x-axis and add to canvas
                 var xAxis = d3.svg.axis()
                     .scale(xScale)
                     .orient("bottom");
@@ -110,8 +119,7 @@ var makeVis = function(countyMap) {
                     // Remove old ones
                     bars.exit().remove();
                 };
-                
-                
+
                 // Handler for dropdown value change
                 var dropdownChange = function() {
                     var newCounty = d3.select(this).property('value'),
@@ -124,23 +132,20 @@ var makeVis = function(countyMap) {
                 var counties = Object.keys(countyMap).sort();
 
                 var dropdown = d3.select("#vis-container")
-				.insert("select")
-				.attr("id","mySelect")
-				.on("change", dropdownChange);
+                    .insert("select", "svg")
+                    .on("change", dropdownChange);
 
-               dropdown.selectAll("option")
-   .data(counties)
-   .enter().append("option")                                                              
-   .attr("value", function (d) { return d; })
-                  .text(function (d) {
-                        return d;
+                dropdown.selectAll("option")
+                    .data(counties)
+                  .enter().append("option")
+                    .attr("value", function (d) { return d; })
+                    .text(function (d) {
+                        return d[0].toUpperCase() + d.slice(1,d.length); // capitalize 1st letter
                     });
 
                 var initialData = countyMap[ counties[0] ];
                 updateBars(initialData);
             };
-
-</script>
-
-</body>
+        </script>
+    </body>
 </html>
