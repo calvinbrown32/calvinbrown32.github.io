@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,7 +30,7 @@
         <script type="text/javascript">
             // Load and munge data, then make the visualization.
             var fileName = "https://calvinbrown32.github.io/data/Pythondatavistest.csv";
-             var modeFields = ["Total", "Car, truck, or van - drove alone", "Car, truck, or van - carpooled", " Public transportation (excluding taxicab)", "Total: - Walked", "Taxicab, motorcycle, bicycle, or other means", "Worked at home"];
+             var modeFields = ["Average","Drive Alone","Carpool","Public Transportation","Walk","Taxicab, Motorcycle, Bicycle, or Other","Work at Home"];
 
             d3.csv(fileName, function(data) {
                 var countyMap = {};
@@ -91,8 +92,8 @@
                     .attr("transform", "rotate(-90)")
                     .attr("y", 6)
                     .attr("dy", ".71em")
-                    .style("text-anchor", "end")
-                    .text("Value");
+                    .style("text-anchor", "end");
+                    //.text("Value");
 
                 var updateBars = function(data) {
                     // First update the y-axis domain to match data
