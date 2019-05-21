@@ -29,7 +29,8 @@
         <script type="text/javascript">
             // Load and munge data, then make the visualization.
             var fileName = "https://calvinbrown32.github.io/data/Pythondatavistest.csv";
-             var modeFields = ["Average","Drive Alone","Carpool","Public Transportation","Walk","Taxicab, Motorcycle, Bicycle, or Other","Work at Home"];
+             var modeFields = ["Drive Alone","Carpool","Public Transportation","Walk","Taxicab, Motorcycle, Bicycle, or Other","Work at Home"];
+             var averageincome = ["Average"];
 
             d3.csv(fileName, function(data) {
                 var countyMap = {};
@@ -41,6 +42,7 @@
                    modeFields.forEach(function(field) {
                         countyMap[County].push( +d[field] );
                     });
+              
                 });
                 makeVis(countyMap);
             });
@@ -110,7 +112,7 @@
                 var updateBars = function(data) {
                     // First update the y-axis domain to match data
                   //  yScale.domain( d3.extent(data) );
-                    yAxisHandleForUpdate.call(yAxis);
+                 //   yAxisHandleForUpdate.call(yAxis);
 
                     var bars = canvas.selectAll(".bar").data(data);
 
