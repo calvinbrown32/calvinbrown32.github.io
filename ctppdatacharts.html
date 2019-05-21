@@ -37,7 +37,7 @@
                     var County = d.County;
                     countyMap[County] = [];
 
-                    // { cerealName: [ bar1Val, bar2Val, ... ] }
+                    // { CountyName: [ bar1Val, bar2Val, ... ] }
                    modeFields.forEach(function(field) {
                         countyMap[County].push( +d[field] );
                     });
@@ -48,17 +48,18 @@
             var makeVis = function(countyMap) {
                 // Define dimensions of vis
                 var margin = { top: 30, right: 50, bottom: 50, left: 50 },
-                    width  = 550 - margin.left - margin.right,
+                    width  = 600 - margin.left - margin.right,
                     height = 250 - margin.top  - margin.bottom;
 
                 // Make x scale
                 var xScale = d3.scale.ordinal()
                     .domain(modeFields)
-                    .rangeRoundBands([0, 300], 0.7);
+                    .rangeRoundBands([0, 250], 0.7);
 
                 // Make y scale, the domain will be defined on bar update
                 var yScale = d3.scale.linear()
-                    .range([150,0]);
+                       .domain([0,60000])
+                    .range([170,0]);
 
                 // Create canvas
                 var canvas = d3.select("#vis-container")
@@ -81,9 +82,9 @@
                     .selectAll("text")
                      .attr("y", 5)
                      .attr("x",5)
-   					 .attr("dy", ".35em")
-  					  .attr("transform", "rotate(40)")
-   					 .style("text-anchor", "start");
+       .attr("dy", ".35em")
+            .attr("transform", "rotate(40)")
+        .style("text-anchor", "start");
                     
 
                 // Make y-axis and add to canvas
@@ -108,7 +109,7 @@
 
                 var updateBars = function(data) {
                     // First update the y-axis domain to match data
-                    yScale.domain( d3.extent(data) );
+                  //  yScale.domain( d3.extent(data) );
                     yAxisHandleForUpdate.call(yAxis);
 
                     var bars = canvas.selectAll(".bar").data(data);
@@ -127,7 +128,7 @@
                         .transition().duration(250)
                         .attr("y", function(d,i) { return yScale(d); })
                         .attr("height", function(d,i) { return height - yScale(d); });
-						
+                        
                     // Remove old ones
                     bars.exit().remove();
                 };
@@ -140,7 +141,7 @@
                     updateBars(newData);
                 };
 
-                // Get names of cereals, for dropdown
+                // Get names of Counties, for dropdown
                 var counties = Object.keys(countyMap).sort();
 
                 var dropdown = d3.select("#vis-container")
