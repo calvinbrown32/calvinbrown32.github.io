@@ -185,13 +185,7 @@
                         .attr("y", function(d,i) { return yScale(incomeaverage); })
                         .attr("width", width/2)
                         .attr("height", .5)
-                        .append("text")
-                       // .attr("transform", "rotate(-90)")
-                    .attr("y", 6)
-                    .attr("dy", ".71em")
-                    .style("text-anchor", "end")
-                    .text("slkdfg");
-                    
+                
                        lines
                         .transition().duration(250)
                         .attr("y", function(d,i) { return yScale(incomeaverage); })
@@ -200,10 +194,14 @@
                     // Remove old ones
               		  lines.exit().remove();
                     
-                     yAxisHandleForUpdate.append("text")
-                    .attr("y", function(d,i) { return yScale(incomeaverage); })
+                    
+                     var averageincometext = canvas.append("g")
+                	
+                   
+                     averageincometext.append("text")
+                    .attr("y", function(d) { return yScale(incomeaverage); })
                     .attr("x", 325)
-                    //.attr("dy", ".025em")
+                    .attr("dy", ".025em")
                     .style("text-anchor", "end")
                     .text("average salary")
                     .attr("class", "line");
@@ -239,4 +237,6 @@
         </script>
     </body>
 </html>
+
+
 
