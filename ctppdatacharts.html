@@ -17,7 +17,7 @@
         }
         .line {
             stroke: #c11717;
-           border-style: dotted;
+     
         }
        
         .mean {
@@ -200,7 +200,13 @@
                     // Remove old ones
               		  lines.exit().remove();
                     
-                    
+                     yAxisHandleForUpdate.append("text")
+                    .attr("y", function(d,i) { return yScale(incomeaverage); })
+                    .attr("x", 325)
+                    //.attr("dy", ".025em")
+                    .style("text-anchor", "end")
+                    .text("average salary")
+                    .attr("class", "line");
                     
                 };
 
@@ -233,8 +239,4 @@
         </script>
     </body>
 </html>
-
-
-
-
 
