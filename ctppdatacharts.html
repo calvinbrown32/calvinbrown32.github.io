@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>d3 Updating Bar Chart With Dropdown</title>
+        <title>Mean Income of NJ Residents by Commute Mode</title>
         <script src="https://d3js.org/d3.v3.min.js"></script>
         <style>
         body {
@@ -16,16 +16,10 @@
             opacity: 0.8;
         }
         .line {
-            stroke: #c11717;
+         fill: #c11717;
      
         }
-       
-        .mean {
-    stroke-width: 1px;
-    stroke: red;
-        }
-
-
+   
         .axis path,
         .axis line {
             fill: none;
@@ -37,10 +31,12 @@
     <body>
         <div id='vis-container'></div>
         <script type="text/javascript">
+        
+        
             // Load and munge data, then make the visualization.
-            var fileName = "https://calvinbrown32.github.io/data/Pythondatavistest.csv";
+            var fileName = "https://calvinbrown32.github.io/data/NJIncomeByMode.csv";
              var modeFields = ["Drive Alone","Carpool","Public Transportation","Walk","Taxicab, Motorcycle, Bicycle, or Other","Work at Home"];
-             var averageincome = ["Average"];
+        //     var averageincome = ["Average"];
 
             d3.csv(fileName, function(data) {
                 var countyMap = {};
@@ -52,17 +48,12 @@
                    
                     
 
-                    // { CountyName: [ bar1Val, bar2Val, ... ] }
+                    // Create Objects for each county that contain income values for each mode. { CountyName: [ bar1Val, bar2Val, ... ] }
                    modeFields.forEach(function(field) {
                         countyMap[County].push( +d[field] );
                    });
                    
-                        averageincome.forEach(function(field) {
-                        countyMapAverage[County].push( +d[field] );
-                   });
-                  
-              console.log(countyMap);
-               console.log(countyMapAverage);
+            
               
                 });
                 makeVis(countyMap);
@@ -131,9 +122,7 @@
                     .text("$ Annual Salary");
 
                 var updateBars = function(data) {
-                    // First update the y-axis domain to match data
-                  //  yScale.domain( d3.extent(data) );
-                 //   yAxisHandleForUpdate.call(yAxis);
+                 
 
                     var bars = canvas.selectAll(".bar").data(data);
                     var lines = canvas.selectAll(".line").data(data);
@@ -141,7 +130,7 @@
                     // Average Line
 
 
-                console.log(data);
+             //   console.log(data);
                  
                     // Add bars for new data
                     bars.enter()
@@ -171,8 +160,7 @@
   incomeaverage += data[i]/6
 
   }
-  console.log(incomeaverage);
-//  };
+
   
   
                        lines.enter()
@@ -199,11 +187,11 @@
                 	
                    
                      averageincometext.append("text")
-                    .attr("y", function(d) { return yScale(incomeaverage); })
+                    .attr("y", function(d) { return 					 yScale(incomeaverage); })
                     .attr("x", 325)
-                    .attr("dy", ".025em")
+                  //  .attr("dy", "-100 em")
                     .style("text-anchor", "end")
-                    .text("average salary")
+                    .text("mean income")
                     .attr("class", "line");
                     
                 };
