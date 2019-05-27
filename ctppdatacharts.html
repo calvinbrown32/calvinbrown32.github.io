@@ -27,6 +27,7 @@
             shape-rendering: crispEdges;
         }
         </style>
+        
     </head>
     <body>
         
@@ -36,28 +37,25 @@
         
         
         <script type="text/javascript">
-            // Load and munge data, then make the visualization.
-            var fileName = "https://calvinbrown32.github.io/data/NJIncomeByMode.csv";
+            
+            // Load data
+             var fileName = "https://calvinbrown32.github.io/data/NJIncomeByMode.csv";
              var modeFields = ["Drive Alone","Carpool","Public Transportation","Walk","Taxicab, Motorcycle, Bicycle, or Other","Work at Home"];
-        //     var averageincome = ["Average"];
+
 
             d3.csv(fileName, function(data) {
                 var countyMap = {};
                 var countyMapAverage = {};
+               
                 data.forEach(function(d) {
                     var County = d.County;
                     countyMap[County] = [];
                      countyMapAverage[County] = [];
-                   
-                    
-
-                    // Create Objects for each county that contain income values for each mode. { CountyName: [ bar1Val, bar2Val, ... ] }
+                  
+                   // Create Objects for each county { CountyName: [ bar1Val, bar2Val, ... ] }
                    modeFields.forEach(function(field) {
                         countyMap[County].push( +d[field] );
                    });
-                   
-            
-              
                 });
                 makeVis(countyMap);
             });
@@ -90,51 +88,39 @@
                 var xAxis = d3.svg.axis()
                     .scale(xScale)
                     .orient("bottom");
-                     
-
+              
                 canvas.append("g")
                     .attr("class", "x axis")
                     .attr("transform", "translate(0," + height + ")")
                     .call(xAxis)
                     .selectAll("text")
-                     .attr("y", 5)
-                     .attr("x",5)
-       .attr("dy", ".35em")
-            .attr("transform", "rotate(40)")
-        .style("text-anchor", "start");
+                    .attr("y", 5)
+                    .attr("x",5)
+                    .attr("dy", ".35em")
+                    .attr("transform", "rotate(40)")
+                    .style("text-anchor", "start");
                     
-
                 // Make y-axis and add to canvas
                 var yAxis = d3.svg.axis()
                     .scale(yScale)
                     .orient("left");
                     
-
                 var yAxisHandleForUpdate = canvas.append("g")
                     .attr("class", "y axis")
                     .call(yAxis);
-                    
-   
-
-
+                   
                 yAxisHandleForUpdate.append("text")
                    .attr("transform", "rotate(-90)")
-                    .attr("y", 6)
-                    .attr("dy", ".71em")
-                    .style("text-anchor", "end")
-                    .text("$ Annual Salary");
+                   .attr("y", 6)
+                   .attr("dy", ".71em")
+                   .style("text-anchor", "end")
+                   .text("$ Annual Salary");
 
                 var updateBars = function(data) {
-                 
-
+             
                     var bars = canvas.selectAll(".bar").data(data);
                     var lines = canvas.selectAll(".line").data(data);
-                   
-                    // Average Line
-
-
-             //   console.log(data);
-                 
+                  
                     // Add bars for new data
                     bars.enter()
                       .append("rect")
@@ -143,33 +129,28 @@
                         .attr("width", xScale.rangeBand())
                         .attr("y", function(d,i) { return yScale(d); })
                         .attr("height", function(d,i) { return height - yScale(d); });
-                        
-                   
-
-                    // Update old ones, already have x / width from before
+                       
+                    
+                    // Update old bars
                     bars
                         .transition().duration(250)
                         .attr("y", function(d,i) { return yScale(d); })
                         .attr("height", function(d,i) { return height - yScale(d); });
                         
-                    // Remove old ones
+                    // Remove old bars
                     bars.exit().remove();
                     
                     
                     
-                console.log(data);    
-     var incomeaverage = 0;
-    for (var i = 0; i < data.length; i++) {
-  incomeaverage += data[i]/6
-
+                    // calculate mean income
+                    var incomeaverage = 0;
+                    for (var i = 0; i < data.length; i++) {
+                    incomeaverage += data[i]/6
   }
 
-  
-  
+                    //horizontal line for mean income
                        lines.enter()
-                      
                         .append("rect")
-                        
                         .attr("class", "line")
                         .attr("transform", "rotate(0)")
                         .attr("x",0)
@@ -190,13 +171,11 @@
                 	
                    
                      averageincometext.append("text")
-                    .attr("y", function(d) { return 					 yScale(incomeaverage); })
+                    .attr("y", function(d) { return yScale(incomeaverage); })
                     .attr("x", 325)
-                  //  .attr("dy", "-100 em")
                     .style("text-anchor", "end")
                     .text("mean income")
-                    .attr("class", "line");
-                    
+                    .attr("class", "line")  
                 };
 
                 // Handler for dropdown value change
