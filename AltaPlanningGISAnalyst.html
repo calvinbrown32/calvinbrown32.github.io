@@ -30,9 +30,8 @@ subtitle: Alta Planning and Design: Transportation and GIS Analyst
 
 <h4> The Commute into Manhattan </h4>
 <h5>The Majority of People Who Work In Manhattan Take Public Transit<h5>
-<h6>Interactive Web Map<h6>
 <br>
-<meta charset="utf-8" />
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
@@ -184,17 +183,18 @@ subtitle: Alta Planning and Design: Transportation and GIS Analyst
 	map.setView([40.751418432997454, -73.96047592163086], 7);
 </script>
 
-
+<br>
+	
 <p>I made this interactive map to visualize the number of people who commute into Manhattan and the percentage of those who take transit from each county in the region. To make the map, I worked with 2009 - 2013 CTPP commute flow <a href=https://www.census.gov/topics/employment/commuting/guidance/flows.html>data.</a>, and used postgreSQL to create new columns containing the county level aggregate statistics, which are displayed when the mouse is hovered over a given county. I referenced and used code from a Leaflet interactive choropleth map <a href=https://leafletjs.com/examples/choropleth>tutorial</a>, customizing sections of code to suit my map. I also used labels-only map tiles created by Carto in conjunction with Leaflet's map pane and layer order functionality to overlay the labels above the data layer, improving the map's legibility.</p> 
-<br>
+
 <br>
 <br>
 <br>
 
-<h1>Mean Income of NJ Residents by Commute Mode</h1>
-<h3>Interactive data chart</h3>
+
+<h4>Mean Income of NJ Residents by Commute Mode</h4>
 <br>
- <h3> Choose a county </h3>
+ <h6> Choose a county </h6>
         <div id='vis-container'></div>
         
         
