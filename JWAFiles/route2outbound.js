@@ -1,4 +1,4 @@
-{
+var route2outbound = {
 "type": "FeatureCollection",
 "name": "route2outbound",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2269" } },
