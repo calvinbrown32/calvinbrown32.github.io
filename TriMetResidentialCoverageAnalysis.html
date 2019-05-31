@@ -69,7 +69,13 @@ subtitle: Analysis of Route 2 and Max Yellow Line for JWA
 		pane: 'labels'
 	}).addTo(map);
 	
-	geojson = L.geoJson(commutedata).addTo(map);
+	geojson = L.geoJson(maxrouteline).addTo(map);
+	geojson = L.geoJson(max).addTo(map);
+	geojson = L.geoJson(route2inboundline).addTo(map);
+	geojson = L.geoJson(route2inbound).addTo(map);
+	geojson = L.geoJson(route2outboundline).addTo(map);
+	geojson = L.geoJson(route2outbound).addTo(map);
+
 	
 	map.setView([45.52895978871845, -122.68226623535156], 12);
 	
