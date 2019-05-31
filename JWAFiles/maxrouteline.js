@@ -1,4 +1,4 @@
-{
+var maxrouteline = {
 "type": "FeatureCollection",
 "name": "maxrouteline",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2269" } },
