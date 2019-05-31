@@ -115,14 +115,6 @@ subtitle: Analysis of Route 2 and Max Yellow Line for JWA
 		onEachFeature: onEachFeature
 	}).addTo(map);
 
-	var coorsLayer = L.geoJSON(coorsField, {
-
-		pointToLayer: function (feature, latlng) {
-			return L.marker(latlng, {icon: baseballIcon});
-		},
-
-		onEachFeature: onEachFeature
-	}).addTo(map);
 
 </script>
 
