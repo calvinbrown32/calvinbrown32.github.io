@@ -1,4 +1,4 @@
-{
+var route2outboundline = {
 "type": "FeatureCollection",
 "name": "route2outboundline",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
