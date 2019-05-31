@@ -15,118 +15,214 @@ subtitle: Analysis of Route 2 and Max Yellow Line for JWA
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
 
 
-	<style>
-		html, body {
-			height: 100%;
-			margin: 0;
-		}
-		#map {
-			width: 600px;
-			height: 400px;
-		}
-	</style>
+	
 
-	<style>#map { width: 99%; height: 500px; }
+<style>
+#map {
+width: 90%;
+height: 500px;
+}
 .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
-//.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
+.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+.textwrap {
+}
+    
+.imageleft{
+  float: left;
+  width: 250px;
+ shape-margin:20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.imageright{
+  float: right;
+  width: 250px;
+ shape-margin:20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+    </style>    
+    
+    
 </head>
-<body>
 
-<div id='map'></div>
+<body>
+<div class="container" role="main">
+  <div class="row">
+<div class="col-md-12">
+    <h1>Long Island Rail Road and Metro-North Railroad </h1>
+
+</div>
+    
+    
+    <hr>
+
+
+<div id='map'class="mx-auto"></div>
+    <br>
+
+
+ 
 
 <script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/route2outboundline.js'></script>
-<script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/route2outbound.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/route2outboundstops.js'></script>
 <script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/route2inboundline.js'></script>
-<script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/route2inbound.js'></script>
-<script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/maxrouteline.js'></script>
-<script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/max.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/route2inboundstops.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/maxstops.js'></script>
+<script type="text/javascript" src='https://calvinbrown32.github.io/JWAFiles/maxline.js'></script>
 
 
 
 <script>
-	var map = L.map('map');
-	
-	map.createPane('labels');
-	
-	// This pane is above markers but below popups
-	map.getPane('labels').style.zIndex = 650;
-	
-	
-	
-	
-	// Layers in this pane are non-interactive and do not obscure mouse/touch events
-	map.getPane('labels').style.pointerEvents = 'none';
-	
-	var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
-	
-	//var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-	//	attribution: cartodbAttribution
-	//}).addTo(map);
-	
-	var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
-		attribution: cartodbAttribution,
-		pane: 'labels'
-	}).addTo(map);
-	
-	
-	
+var map = L.map('map');
+map.createPane('lirr');
+    map.getPane('lirr').style.zIndex = 640;
+    
+map.createPane('stops');
+    map.getPane('stops').style.zIndex = 660;
+    
 
-	function onEachFeature(feature, layer) {
-		var popupContent = "<p>I started out as a GeoJSON " +
-				feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+    
+    var route2outboundline = L.geoJson(route2outboundline, {
+               color: "#9595e2",
+             weight: 1.5,
+                  opacity: 7,
+                  pane: 'lirr'
+       }).addTo(map);
 
-		if (feature.properties && feature.properties.popupContent) {
-			popupContent += feature.properties.popupContent;
+   var route2inboundline = L.geoJson(route2inboundline, {
+    color: "#2b2bc4",
+        weight: 1.5,
+        opacity: 7,
+        pane: 'lirr'
+    }).addTo(map);
+            
+   var maxline = L.geoJson(maxline, {
+    color: "#f9d831",
+        weight: 4,
+        opacity: 7,
+        pane: 'lirr'
+    }).addTo(map);
+    
+    var geojsonMarkerOptions = {
+    radius: 2,
+    fillColor: "#ffffff",
+    color: "#000",
+    pane: "stops",
+    weight: .5,
+    opacity: 1,
+    fillOpacity: 0.8
+    };
+       var geojsonMarkerOptionsOutbound = {
+    radius: 2,
+    fillColor: "#9595e2",
+    color: "#000",
+    pane: "stops",
+    weight: .5,
+    opacity: 1,
+    fillOpacity: 0.8
+    };
+       var geojsonMarkerOptionsInbound = {
+    radius: 2,
+    fillColor: "#2b2bc4",
+    color: "#000",
+    pane: "stops",
+    weight: .5,
+    opacity: 1,
+    fillOpacity: 0.8
+};
+
+function onEachFeature(feature, layer) {
+		var popupContent = "" ;
+
+		if (feature.properties && feature.properties.STATION ) {
+			popupContent += feature.properties.STATION;
+		}
+        
+        	if (feature.properties && feature.properties.stop_name) {
+			popupContent += feature.properties.stop_name;
 		}
 
 		layer.bindPopup(popupContent);
 	}
 
-	L.geoJSON([maxrouteline, route2inboundline, route2outboundline], {
 
-		style: function (feature) {
-			return feature.properties && feature.properties.style;
-		},
+L.geoJSON(maxstops, {
 
-		onEachFeature: onEachFeature,
+	onEachFeature: onEachFeature,
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptions);
+    }
+}).addTo(map);
 
-		pointToLayer: function (feature, latlng) {
-			return L.circleMarker(latlng, {
-				radius: 8,
-				fillColor: "#ff7800",
-				color: "#000",
-				weight: 1,
-				opacity: 1,
-				fillOpacity: 0.8
-			});
-		}
-	}).addTo(map);
+L.geoJSON(route2outboundstops, {
 
-	L.geoJSON(maxrouteline, {
+	onEachFeature: onEachFeature,
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptionsOutbound);
+    }
+}).addTo(map);
 
-		filter: function (feature, layer) {
-			if (feature.properties) {
-				// If the property "underConstruction" exists and is true, return false (don't render features under construction)
-				return feature.properties.underConstruction !== undefined ? !feature.properties.underConstruction : true;
-			}
-			return false;
-		},
+L.geoJSON(route2inboundstops, {
 
-		onEachFeature: onEachFeature
-	}).addTo(map);
+	onEachFeature: onEachFeature,
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptionsInbound);
+    }
+}).addTo(map);
+            
+                    
+map.createPane('labels');
+// This pane is above markers but below popups
+map.getPane('labels').style.zIndex = 650;
+// Layers in this pane are non-interactive and do not obscure mouse/touch events
+map.getPane('labels').style.pointerEvents = 'none';
+var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+attribution: cartodbAttribution
+}).addTo(map);
+var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+attribution: cartodbAttribution,
+pane: 'labels'
+}).addTo(map);
+geojson = L.geoJson(commutedata).addTo(map);
+map.setView([45.52895978871845, -122.68226623535156], 12);
 
 
+// control that shows state info on hover
+
+
+var info = L.control();
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info');
+        this.update();
+        return this._div;
+    };
+    info.update = function (props) {
+        this._div.innerHTML = '<b>Click on features for more info</b>';
+    };
+    info.addTo(map);
+
+
+var legend = L.control({position: 'bottomright'});
+
+
+legend.onAdd = function (map) {
+var div = L.DomUtil.create('div', 'info legend');
+ 
+
+div.innerHTML = 'TriMet ' + '<br>' + '<span style="color:#2b2bc4;">──</span>  Route 2 Inbound' + '<br>' + '<span style="color:#9595e2;">──</span>  Route 2 Outbound'+ '<br>' + '<span style="color:#f9d831;">──</span>  MAX Yellow Line' ;
+return div;
+};
+
+legend.addTo(map);
+
+
+map.setView([45.52895978871845, -122.68226623535156], 12);
 </script>
 
-
-
-<p>
-A report will be available soon...
-</p>
-<br>
-<center> <a href="https://calvinbrown32.github.io">home</a> </center>
-
-
+    
 </body>
-	
 </html>
+
+
