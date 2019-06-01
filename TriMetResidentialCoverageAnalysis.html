@@ -84,20 +84,22 @@ map.createPane('lirr');
 map.createPane('stops');
     map.getPane('stops').style.zIndex = 660;
     
+map.createPane('bus');
+    map.getPane('bus').style.zIndex = 650;
 
     
     var route2outboundline = L.geoJson(route2outboundline, {
                color: "#9595e2",
              weight: 1.5,
                   opacity: 6,
-                  pane: 'lirr'
+                  pane: 'bus'
        }).addTo(map);
 
    var route2inboundline = L.geoJson(route2inboundline, {
     color: "#2b2bc4",
         weight: 1.5,
         opacity: 6,
-        pane: 'lirr'
+        pane: 'bus'
     }).addTo(map);
             
    var maxline = L.geoJson(maxline, {
