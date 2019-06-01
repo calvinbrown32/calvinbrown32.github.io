@@ -149,15 +149,15 @@ function onEachFeature(feature, layer) {
 		}
 	
 		if (feature.properties && feature.properties.SumByStati) {
-			popupContent += "<h6>" + (feature.properties.SumByStati) + " people live within 1/2 mile of this station. </h6>";
+			popupContent += "<h6>" + (feature.properties.SumByStati) + " people live in the residential coverage area for this station</h6>";
 		}
 	
 		if (feature.properties && feature.properties.vorbguni_1) {
-			popupContent += "<h6>" + (feature.properties.vorbguni_1) + " people live within 1/2 mile of this bus stop. </h6>";
+			popupContent += "<h6>" + (feature.properties.vorbguni_1) + " people live in the residential coverage area for this bus stop. </h6>";
 		}
 	
 		if (feature.properties && feature.properties.outPopSum) {
-			popupContent += "<h6>" + (feature.properties.outPopSum) + " people live within 1/2 mile of this bus stop. </h6>";
+			popupContent += "<h6>" + (feature.properties.outPopSum) + " people live in the residential coverage area for this bus stop </h6>";
 		}
 
 		layer.bindPopup(popupContent);
