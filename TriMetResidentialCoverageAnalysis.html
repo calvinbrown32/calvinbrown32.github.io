@@ -145,6 +145,18 @@ function onEachFeature(feature, layer) {
         	if (feature.properties && feature.properties.stop_name) {
 			popupContent += feature.properties.stop_name;
 		}
+	
+		if (feature.properties && feature.properties.SumByStati) {
+			popupContent += "<h4>" + (feature.properties.SumByStati) + " people live within 1/2 mile of this station. </h4>";
+		}
+	
+		if (feature.properties && feature.properties.vorbguni_1) {
+			popupContent += "<h4>" + (feature.properties.vorbguni_1) + " people live within 1/2 mile of this bus stop. </h4>";
+		}
+	
+		if (feature.properties && feature.properties.outPopSum) {
+			popupContent += "<h4>" + (feature.properties.outPopSum) + " people live within 1/2 mile of this bus stop. </h4>";
+		}
 
 		layer.bindPopup(popupContent);
 	}
