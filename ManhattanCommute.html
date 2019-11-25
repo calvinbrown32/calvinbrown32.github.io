@@ -56,7 +56,8 @@ subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 
 
 
-<i>The Commute Into Manhattan Map</i> below highlights the important role that transit, the LIRR, and the MNR play in regional transportation and access to Manhattan. The map visualizes ACS 2006-2010 Commute Flow data, and includes a hover feature that allows users to see the total number of people that commute into Manhattan from each county, and the percentage of these commuters that use transit. Less people commute into Manhattan from distant counties, but even in these cases a large percentage of commuters rely on transit. It should also be noted that the margin of error increases and accuracy of the data potentially decreases in counties with a smaller number people who commute into Manhattan.  
+<paragraph><i>The Commute Into Manhattan Map</i> below highlights the important role that transit, the LIRR, and the MNR play in regional transportation and access to Manhattan. The map visualizes ACS 2006-2010 Commute Flow data, and includes a hover feature that allows users to see the total number of people that commute into Manhattan from each county, and the percentage of these commuters that use transit. Less people commute into Manhattan from distant counties, but even in these cases a large percentage of commuters rely on transit. It should also be noted that the margin of error increases and accuracy of the data potentially decreases in counties with a smaller number people who commute into Manhattan.  
+</paragraph>
 
    
 	<br>
@@ -211,7 +212,7 @@ map.setView([40.751418432997454, -73.96047592163086], 8);
 <hr>
 
 <br>	
-<paragraph>I made this interactive map to visualize the number of people who commute into Manhattan and the percentage of those who take transit from each county in the region. To make the map, I worked with 2009 - 2013 CTPP commute flow <a href=https://www.census.gov/topics/employment/commuting/guidance/flows.html>data</a>, and used postgreSQL to create new columns containing the county level aggregate statistics, which are displayed when the mouse is hovered over a given county. I referenced and used code from a Leaflet interactive choropleth map <a href=https://leafletjs.com/examples/choropleth>tutorial</a>, customizing sections of code to suit my map. I also used labels-only map tiles and Leaflet's map pane and layer order functionality to overlay the labels above the data layer, improving the map's legibility.</paragraph> 
+<paragraph>I made this interactive map to visualize the number of people who commute into Manhattan and the percentage of those who take transit from each county in the region. To make the map, I worked with 2009 - 2013 CTPP commute flow <a href=https://www.census.gov/topics/employment/commuting/guidance/flows.html>data</a>, and used postgreSQL to create new columns containing the county level aggregate statistics, which are displayed when the mouse is hovered over a given county. I referenced and used code from a Leaflet interactive choropleth map <a href=https://leafletjs.com/examples/choropleth>tutorial</a>, customizing sections of code to suit my needs. I also used labels-only map tiles and Leaflet's map pane and layer order functionality to overlay the labels above the data layer, improving the map's legibility.</paragraph> 
 
 <br>
 <hr>
@@ -379,7 +380,7 @@ map.setView([40.751418432997454, -73.96047592163086], 8);
             };
         </script>
 
-<paragraph>This interactive chart will be part of a dashboard that provides quick access to transportation mode share, demographics, and income data for commuters traveling into Manhattan's Central Business District (CBD). I am building the dashboard to offer easy access to important data and facts in the congestion pricing debate. My interactive chart, for example, refutes claims that the congestion charge would be a regressive tax by showing that workers who drive have a significantly higher mean income than those taking transit. To make the chart I used 2017 American Community Survey 5 year annual income estimates. I used code from <a href=http://bl.ocks.org/williaster/10ef968ccfdc71c30ef8>this example</a> of an updating bar chart, customizing it for my data, and adding new code to include the horizontal mean income line. 
+<paragraph>This interactive chart will be part of a dashboard that provides quick access to transportation mode share, demographics, and income data for commuters traveling into Manhattan's Central Business District (CBD). I am building the dashboard to offer easy access to important data and facts in the congestion pricing debate. My interactive chart, for example, refutes claims that the congestion charge would be a regressive tax by showing that workers who drive have a significantly higher mean income than those taking transit. To make the chart I used 2017 American Community Survey 5 year annual income estimates. I used code from <a href=http://bl.ocks.org/williaster/10ef968ccfdc71c30ef8>this example</a> of an updating bar chart, customizing it to my needs, and adding new code to include the horizontal mean income line. 
 </paragraph> 
 
 
