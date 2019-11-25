@@ -4,6 +4,57 @@ title: The Commute Into Manhattan
 subtitle: The Majority of People Who Work In Manhattan Take Public Transit
 #use-site-title: true
 ---
+<script src="https://d3js.org/d3.v3.min.js"></script>
+        <style>
+        body {
+            font: 10px sans-serif;
+        }
+        select {
+            display: block;
+        }
+        .bar {
+            fill: #4f7bc1;
+            opacity: 0.8;
+        }
+        .line {
+         fill: #c11717;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+	paragraph {
+	    font: 14px sans-serif;
+	}
+	
+	</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		#map {
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+
+	<style>#map { width: 99%; height: 500px; }
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
+
+
 
 <i>The Commute Into Manhattan Map</i> below highlights the important role that transit, the LIRR, and the MNR play in regional transportation and access to Manhattan. The map visualizes ACS 2006-2010 Commute Flow data, and includes a hover feature that allows users to see the total number of people that commute into Manhattan from each county, and the percentage of these commuters that use transit. Less people commute into Manhattan from distant counties, but even in these cases a large percentage of commuters rely on transit. It should also be noted that the margin of error increases and accuracy of the data potentially decreases in counties with a smaller number people who commute into Manhattan.  
 
