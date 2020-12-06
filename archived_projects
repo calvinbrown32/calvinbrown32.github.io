@@ -1,0 +1,156 @@
+---
+layout: page
+title: Calvin Brown  #centered title at top of page
+subtitle: Urban Planner, Cartographer, Transit and Safe Streets Advocate
+#use-site-title: true
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Calvin Brown</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+
+    <script type="text/javascript" src='https://calvinbrown32.github.io/geojson/NYC/projects3.js'></script>
+
+<style>
+<style>#map { width: 100%; height: 500px; }
+	
+.info { 
+padding: 6px 8px; 
+font: 14px/16px Arial, Helvetica, sans-serif; 
+background: white; 
+background: rgba(255,255,255,0.8); 
+box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+border-radius: 5px; } 
+.info h4 { margin: 0 0 5px; color: #777; }	
+	
+h4.adjust 
+{
+line-height: 1.25;
+:link { color: #0000EE; }
+:visited { color: #551A8B; }
+font-size: 95px;
+font-weight:600;
+}
+h2.doubletracking{
+    letter-spacing: 3px;
+}	
+h2.centerbyindent{
+    text-indent: 150px
+}
+h2.lineheightadjust{
+	line-height: 2;
+}
+div.topmarginadjust{
+margin-top: 80px; 
+}
+	
+</style>
+	
+	
+</head>
+	
+
+<body>
+
+<div class="col-sm-6">
+<h2 class="text-center lineheightadjust doubletracking"> Additional Projects  </h2> 
+<h4 class="adjust"><a href="https://calvinbrown32.github.io/dangerouscorridorslic"> Dangerous Corridors in East Long Island City</a></h4> 
+<h4 class="adjust"><a href="https://calvinbrown32.github.io/saferstreetslic"> Safer Streets for East Long Island City</a> <br>
+	<small><i> General recommendations </small></i></h4>
+	<h4 class="adjust"><a href="https://calvinbrown32.github.io/33rdstskycenter"> 33rd Street Sky Center </a><br>
+	<small><i>Vision for an improved 33rd St. - Rawson St. 7 line station</small></i></h4>
+<h4 class="adjust"><a href="https://calvinbrown32.github.io/visualizingcalmerintersections"> Visualizing Calmer Intersections</a> <br>
+	<small><i>Thomson Avenue, Van Dam Street, and Queens Boulevard</small></i></h4>
+</div>
+	
+
+<div id="mapid" class="col-md-6 topmarginadjust" style="height: 450px;"></div>
+<script>
+	
+var mymap = L.map('mapid').setView([40.751418432997454, -73.96047592163086], 12);	
+	
+var myStyle = {
+    "color": "#132759",
+    "weight": 2.5,
+    "opacity": 7,
+	}
+var myStyleHover = {
+	"color": "#0000EE",
+	"weight": 2.5,
+   	"opacity": 7,
+	}
+	
+	
+	
+function style(feature) {
+		return (myStyle);
+	}
+	function highlightFeature(e) {
+		var layer = e.target;
+		layer.setStyle(myStyleHover);
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}	
+	}
+	
+	var geojson;
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+	}
+	
+	// function zoomToFeature(e) {
+	//	mymap.fitBounds(e.target.getBounds());
+	//}
+	
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+		});
+ 	if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent);
+		}
+	}
+	
+	var info = L.control();
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+	info.update = function (props) {
+		this._div.innerHTML = '<b>Click on features for more info</b>'; 
+	};
+	info.addTo(mymap);
+	
+	
+	geojson = L.geoJson(projectdata, {
+		style: style,
+		onEachFeature: onEachFeature
+	}).addTo(mymap);
+	
+	
+	
+//	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+	
+	// --Carto Tile Layer--
+	var mymap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd'
+	}).addTo(mymap);
+</script>
+
+</div>
+
+</body>
