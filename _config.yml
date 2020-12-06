@@ -23,11 +23,12 @@ description: Urban Planner, Freelance Cartographer, Transit and Safe Streets Adv
 # --- Navigation bar options --- #
 
 # List of links in the navigation bar
+# The text before the colon becomes a new clickable link on the navbar. The string after the colon points to an html in the home directory.
 navbar-links:
   Contact: "contact"
   #About: "aboutme"
   Resume: "resume"
-  Writing: "deathandliferevisited"
+# Writing: "deathandliferevisited" 
   
 #  Projects:
 #    - Mapping the Myth of the Second Avenue Subway: "https://calvinbrown32.github.io/secondavesubway"
