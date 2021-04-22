@@ -785,3 +785,8 @@ td.gutter {
   font-style: italic;
   font-size: 16px;
 }
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
