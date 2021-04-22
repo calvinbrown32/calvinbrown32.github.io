@@ -796,3 +796,8 @@ td.gutter {
     vertical-align: middle;
     float: none;
 }
+.display-flex-center {
+    display:flex;
+    align-items:center;
+}
+
