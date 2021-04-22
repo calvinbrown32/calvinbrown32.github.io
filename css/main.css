@@ -791,13 +791,6 @@ td.gutter {
     align-items: center;
 }
 
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-}
-.display-flex-center {
-    display:flex;
-    align-items:center;
-}
+
+
 
