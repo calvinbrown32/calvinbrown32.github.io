@@ -801,4 +801,41 @@ td.gutter {
   float: none;
 }
 
+.info { 
+padding: 6px 8px; 
+font: 14px/16px Arial, Helvetica, sans-serif; 
+background: white; 
+background: rgba(255,255,255,0.8); 
+box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+border-radius: 5px; } 
+
+.info h4 {
+  margin: 0 0 5px; color: #777; 
+}	
+	
+h4.adjust {
+line-height: 1.25;
+:link { color: #0000EE; }
+:visited { color: #551A8B; }
+font-size: 95px;
+font-weight:600;
+}
+
+h2.doubletracking{
+    letter-spacing: 3px;
+}	
+
+h2.centerbyindent{
+    text-indent: 150px
+}
+
+h2.lineheightadjust{
+	line-height: 2;
+}
+
+div.topmarginadjust{
+margin-top: 80px; 
+}
+	
+
 
