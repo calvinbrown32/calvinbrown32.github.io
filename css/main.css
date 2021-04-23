@@ -795,7 +795,7 @@ td.gutter {
   height: 30px;
 }
 
-.vertical-align2 div {
+.vertical-align2 {
   display: inline-block;
   vertical-align: middle;
   float: none;
