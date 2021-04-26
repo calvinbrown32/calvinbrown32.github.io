@@ -837,5 +837,19 @@ div.topmarginadjust{
 margin-top: 80px; 
 }
 	
+.navbar-brand-custom {
+    font-family: 'FontAwesome', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #545454;
+    font-size: 18px;
+    font-weight: 800;
+}
 
+.nav-item-custom {
+    font-family: 'FontAwesome', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #e63535;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 800;
+    }
 
