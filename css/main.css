@@ -842,6 +842,13 @@ margin-top: 80px;
     color: #404040;
     font-size: 18px;
     font-weight: 800;
+	
+.navbar-brand-custom:hover {
+	color: #0085A1
+	}
+	
+	
+	
 }
 
 .nav-item-custom {
