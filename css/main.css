@@ -108,7 +108,7 @@ img {
 /* --- Navbar --- */
 
 .navbar-custom {
-  background-color: {{ site.navbar-col }};
+  background-color: #F5F5F5;
   border-bottom: 1px solid #EAEAEA;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   {% if site.navbar-img %}
@@ -839,7 +839,7 @@ margin-top: 80px;
 	
 .navbar-brand-custom {
     font-family: 'FontAwesome', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #545454;
+    color: #404040;
     font-size: 18px;
     font-weight: 800;
 }
