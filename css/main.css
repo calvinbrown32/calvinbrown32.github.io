@@ -26,11 +26,11 @@ h1,h2,h3,h4,h5,h6 {
   font-weight: 800;
 }
 a {
-  color: {{ site.link-col }};
+  color: #008AFF;
 }
 a:hover,
 a:focus {
-  color: {{ site.hover-col }};
+  color: #0085A1;
 }
 blockquote {
   color: #808080;
@@ -70,12 +70,12 @@ hr.small {
 ::-moz-selection {
   color: white;
   text-shadow: none;
-  background-color: {{ site.hover-col }};
+  background-color: #0085A1;
 }
 ::selection {
   color: white;
   text-shadow: none;
-  background-color: {{ site.hover-col }};
+  background-color: #0085A1;
 }
 img::selection {
   color: white;
@@ -126,7 +126,7 @@ img {
 .navbar-custom .navbar-brand,
 .navbar-custom .nav li a {
   font-weight: 800;
-  color: {{ site.navbar-text-col }};
+  color: #404040;
 }
 
 .navbar-custom .navbar-brand:hover,
@@ -341,7 +341,7 @@ footer .theme-by {
 .post-preview a:focus,
 .post-preview a:hover {
   text-decoration: none;
-  color: {{ site.hover-col }};
+  color: #0085A1;
 }
 
 .post-preview .post-title {
@@ -618,8 +618,8 @@ footer .theme-by {
 .pager li a:hover,
 .pager li a:focus {
   color: #FFF;
-  border: 1px solid {{ site.hover-col }};
-  background-color: {{ site.hover-col }};
+  border: 1px solid #0085A1;
+  background-color: #0085A1;
 }
 
 .pager {
