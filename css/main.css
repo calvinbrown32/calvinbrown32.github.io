@@ -843,7 +843,7 @@ margin-top: 80px;
     font-size: 18px;
     font-weight: 800;
 	
-.navbar-brand-custom:hover {
+.navbar-brand-custom a:hover {
 	color: #0085A1
 	}
 	
