@@ -849,7 +849,6 @@ margin-top: 80px;
 	text-decoration: none;
 	}
 	
-	
 
 .nav-item-custom {
     font-family: 'FontAwesome', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -859,4 +858,18 @@ margin-top: 80px;
     font-size: 14px;
     font-weight: 800;
     }
+
+.hyperlink_center {
+	  margin: auto;
+	  color: #008AFF;
+  	  width: 50%;
+  	  padding: 10px;
+}
+}
+.hyperlink_center:hover,
+.hyperlink_center:focus {
+  margin: auto;
+  color: #0085A1;
+}
+
 
