@@ -872,6 +872,9 @@ margin-top: 80px;
   color: #0085A1;
 }
 
-.top-buffer { margin-top:100px; }
+.empty-row { 
+	margin-top:80px; 
+	margin-bottom:30px;
+}
 
 
