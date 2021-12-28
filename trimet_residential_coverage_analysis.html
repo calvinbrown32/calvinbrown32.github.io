@@ -209,12 +209,12 @@ map.createPane('bus');
         pane: 'bus'
     }).addTo(map);
 
-   var maxline = L.geoJson(maxline, {
-    color: "#f9d831",
-        weight: 4.5,
-        opacity: 6,
-        pane: 'lirr'
-    }).addTo(map);
+//   var maxline = L.geoJson(maxline, {
+//    color: "#f9d831",
+//        weight: 4.5,
+//        opacity: 6,
+//        pane: 'lirr'
+//    }).addTo(map);
 	
     var maxline = L.geoJson(transit_stops_w_pop_max_yellow_stops, {
     color: "#f9d831",
@@ -223,7 +223,7 @@ map.createPane('bus');
         pane: 'lirr'
     }).addTo(map);
 	
-   var maxline = L.geoJson(transit_stops_iso_max_yellow_stops, {
+   var maxline_iso = L.geoJson(transit_stops_iso_max_yellow_stops, {
     color: "#f9d831",
         weight: 4.5,
         opacity: 6,
