@@ -215,6 +215,16 @@ map.createPane('bus');
         opacity: 6,
         pane: 'lirr'
     }).addTo(map);
+	
+    var maxline = L.geoJson(transit_stops_w_pop_max_yellow_stops, {
+    color: "#f9d831",
+        weight: 4.5,
+        opacity: 6,
+        pane: 'lirr'
+    }).addTo(map);
+	
+	
+	
 
     var geojsonMarkerOptions = {
     radius: 3.5,
