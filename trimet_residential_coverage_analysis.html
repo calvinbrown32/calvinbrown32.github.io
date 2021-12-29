@@ -176,6 +176,7 @@ These Voronoi polygons, clipped to the ½ mile buffers, are the transit stop res
 
 <script>
 
+
    // CREATE MAP OBJECT
     // var map = L.map('map');
 
@@ -256,6 +257,7 @@ These Voronoi polygons, clipped to the ½ mile buffers, are the transit stop res
         }).addTo(route_2_inbound);
 
         var route_2_inbound_isos = L.geoJSON(route_2_inbound_io_isos, {
+        onEachFeature: onEachFeature,
             color: "#5656fc",
             weight: 1.5,
             opacity: 7,
@@ -277,6 +279,7 @@ These Voronoi polygons, clipped to the ½ mile buffers, are the transit stop res
         }).addTo(max_yellow_line);
 
        var max_line_isos = L.geoJSON(max_isos, {
+        onEachFeature: onEachFeature,
         color: "#ffe978",
             weight: 3,
             opacity: 7,
@@ -311,8 +314,9 @@ These Voronoi polygons, clipped to the ½ mile buffers, are the transit stop res
                       pane: 'bus'
        }).addTo(map);
 
-    // LAYER CONTROL - ALLOWS LAYERS TO BE TOGGLED ON and OFF
+   // LAYER CONTROL - ALLOWS LAYERS TO BE TOGGLED ON and OFF
 
+   // leave blank basemaps variable so that creates layer control box correctly
    var basemaps = {
    };
    var overlays = {
@@ -321,6 +325,11 @@ These Voronoi polygons, clipped to the ½ mile buffers, are the transit stop res
           "2-Division Outbound":route_2_outbound
      };
 
+//================================================
+
+
+
+//================================================
 
      // Message in Righthand corner saying to Click on Features
     var info = L.control();
@@ -335,8 +344,8 @@ These Voronoi polygons, clipped to the ½ mile buffers, are the transit stop res
             info.addTo(map);
 
 
-    // Add Layer box.
-    L.control.layers(basemaps, overlays).addTo(map);
+// Add Layer box.
+var geojson =  L.control.layers(basemaps, overlays).addTo(map);
 
 
  // ADD ATTRIBUTION AND TILES TO MAP
@@ -350,13 +359,9 @@ These Voronoi polygons, clipped to the ½ mile buffers, are the transit stop res
     pane: 'labels'
     }).addTo(map);
 
-// POP UP DATA FUNCTION
-function onEachFeature(feature, layer) {
+    // POP UP DATA FUNCTION
+    function onEachFeature(feature, layer) {
 		var popupContent = "" ;
-
-		if (feature.properties && feature.properties.STATION ) {
-			popupContent += feature.properties.STATION;
-		}
 
         	if (feature.properties && feature.properties.stop_name) {
 			popupContent += feature.properties.stop_name;
@@ -367,8 +372,13 @@ function onEachFeature(feature, layer) {
 		}
 
 		layer.bindPopup(popupContent);
-	}
+    };
+
 // Any text between /* and */ will be ignored by JavaScript.
+
+   // Function to highlight the object when the mouse hovers over isochrones
+   // if (feature.properties.layer_type == "Isochrone") {
+
 
 
 
@@ -383,9 +393,6 @@ function onEachFeature(feature, layer) {
         return div;
         };
         legend.addTo(map);
-
-
-//map.setView([45.55733331588203, -122.53807067871094], 12);
 
 
 </script>
