@@ -1,3 +1,4 @@
+var route_2_inbound_io_stops =
 {
 "type": "FeatureCollection",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
