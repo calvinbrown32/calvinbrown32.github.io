@@ -144,18 +144,21 @@ Dissolved the isochrones areas for each transit route. The resulting polygons sh
 <br>
         <img src="https://calvinbrown32.github.io/JWAFiles/2021/Dissolved_Iso.png" alt="dissolved_iso" width= 40%>
 <br>
+        <br>
 <li>
 Created Voronoi polygons within the dissolved isochrones. These polygons demarcate an area for each transit stop that consists of all points within the dissolved isochrone layer that are closer to that transit stop than to any other. This step ensures that residents living near two or more stops are not double counted, and the polygons represent the residential coverage areas for each transit stop. See an image of the residential coverage area polygons below:
 </li>
 <br>
         <img src="https://calvinbrown32.github.io/JWAFiles/2021/Voronoi_Polys.png" alt="voronoi_polys" width= 40%>
 <br>
+        <br>
         <li>
 The population data is tied to Census block group geographies. Clipped the block groups to the residential coverage areas, and calculated the areal proportion of each block group falling fully or partially within the residential coverage areas. See an image below of the block group areas clipped to the residential coverage areas.
 </li>
         <br>
 <img src="https://calvinbrown32.github.io/JWAFiles/2021/Voronoi_BG_Intersect.png
       " alt="voronoi_block_groups" width= 70%>
+        <br>
         <br>
 
 <li>
