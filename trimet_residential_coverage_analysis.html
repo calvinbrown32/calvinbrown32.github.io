@@ -345,6 +345,7 @@ For each residential coverage area, I summed the proportional population estimat
         }).addTo(route_2_outbound);
 
        var route_2_outbound_isos = L.geoJSON(route_2_outbound_isos, {
+            onEachFeature: onEachFeature,
             color: "#bdbdff",
             weight: 2,
             opacity: 7,
