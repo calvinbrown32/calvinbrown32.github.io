@@ -163,7 +163,7 @@ For each residential coverage area, I summed the proportional population estimat
 
 	<h4> TriMet Residential Coverage Interactive Map</h4>
     <p>
-      This map allows users to view the residential coverage of each transit stop. The residential coverage area for each stop is defined as the region around a given transit stop consisting of all points closer to that transit stop than any other transit stop on the same route, and within ½ mile network distance from the stop. Click on the layers button in the upper righthand corner to view different routes. Click on map features to view the residential coverage for each transit stop.   
+      This map allows users to view the residential coverage of each transit stop. The residential coverage area for each stop is defined as the region around a given transit stop consisting of all points closer to that transit stop than any other transit stop on the same route, and within ½ mile network distance from the stop. Click on the layers button in the upper righthand corner to view different routes. Click on map features to view the residential coverage for each transit stop.
     </p>
 	<br>
 
@@ -250,7 +250,7 @@ For each residential coverage area, I summed the proportional population estimat
 
     var geojsonMarkerOptionsOutbound = {
     radius: 5,
-    fillColor: "#9595e2",
+    fillColor: "#2b2bc4",
     color: "#000",
     pane: "stops",
     weight: .5,
@@ -337,7 +337,7 @@ For each residential coverage area, I summed the proportional population estimat
         }).addTo(route_2_outbound);
 
         var route2outboundline = L.geoJson(route2outboundline, {
-                   color: "#9595e2",
+                   color: "#2b2bc4",
                  weight: 2.5,
                       opacity: 6,
                       pane: 'bus'
@@ -418,7 +418,7 @@ var geojson =  L.control.layers(basemaps, overlays).addTo(map);
         var legend = L.control({position: 'bottomright'});
         legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend');
-        div.innerHTML = 'TriMet ' + '<br>' + '<span style="color:#2b2bc4;">──</span>  Route 2 Inbound' + '<br>' + '<span style="color:#9595e2;">──</span>  Route 2 Outbound'+ '<br>' + '<span style="color:#f9d831;">──</span>  MAX Yellow Line' ;
+        div.innerHTML = 'TriMet ' + '<br>' + '<span style="color:#2b2bc4;">──</span>  Route 2 Inbound and Outbound' + '<br>' + '<span style="color:#f9d831;">──</span>  MAX Yellow Line' ;
         return div;
         };
         legend.addTo(map);
