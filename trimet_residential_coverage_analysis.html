@@ -122,20 +122,49 @@
 <div class="container">
 <div class="row">
 <div class="col">
-	<p> This residential coverage analysis estimates the number of inhabitants within ½ mile of each station on the MAX Yellow Line and each bus stop of the inbound and outbound Route 2 bus.  Understanding how many people live near transit is crucial to understanding and predicting ridership, as well as making difficult decisions regarding transit investment and planning. The interactive map and charts I created help viewers understand this important statistic, and give them the ability to pinpoint bus stops that have exceptionally low or high residential coverage.  </p>
+<p>
+    This residential coverage analysis estimates the number of inhabitants within ½ mile of each station on the MAX Yellow Line and each bus stop of the inbound and outbound Route 2 bus. Understanding how many people live and quick access to transit is crucial to understanding and predicting ridership, measuring the appropriateness of bus stop location and spacing,  and assessing myriad other factors that play into difficult decisions regarding transit investment and planning. The interactive map and charts I created allow users to explore and understand this important statistic, and give them the ability to pinpoint bus stops that have exceptionally low or high residential coverage.
+</p>
+    <h4> Methodology  </h4>
+<p>
+From downloading the Census block group level population data, to creating the final data outputs, interactive maps, and charts, this entire process has been coded using open source tools in Python and Javascript. The code used in this analysis can be viewed on Github. There are many advantages to using code to conduct the analysis. The main advantage is scalability. The code used for this analysis can be used to quickly conduct the same analysis anywhere in the world. The code is well documented,  and the code itself is documentation of the process. This allows for the work to be replicated, peer reviewed, and checked for quality assurance. The code can be leveraged across projects, across time and geographies, and can be further developed into interactive applications or web tools.
+The following steps were taken in the analysis:
+</p>
 
-	<h4> Challenges </h4>
-	<p>The challenge of this project was creating a sound methodology for estimating the population within ½ mile of transit stops using population data that corresponds to census block groups, which have a significantly different geography than that of the ½ mile buffers. </p>
-		<h4> Methodology  </h4>
-		<p>First, I created a ½ mile buffer around each transit stop.  Although these buffer areas might seem like appropriate areas to use to calculate the residential coverage of each stop, many of them overlap with other buffer areas, which would mean that residents living in multiple, overlapping buffer areas would be counted multiple times, leading to poor estimates. To solve this issue, I dissolved all of the buffered areas into a single polygon for each transit route, and next generated Voronoi polygons using the transit stops. These polygons form a region around each transit stop consisting of all points closer to that transit stop than any other, elegantly dividing up the transit stop buffer area in a way that prevents double counting and mirrors the way people usually use the nearest viable stop when they take transit.
+    <ol>
+  <li>
+Used Python to download the 2019 5-year American Community Survey (ACS) population data at the block group level from the Census API, and merge the population data with the Census block group level geographies.
+  </li>
+  <li>
+Used OSMnx to download and process a topological street network for Multnomah County, and create isochrones for each transit stop that approximate 1/2 miles distance traveling along the walkable street network.
+  </li>
+  <li>
+Dissolved the isochrones areas for each transit route. The resulting polygons show everywhere that is within 1/2 mile travel on the walkable network from any of the transit stops on the route. See an image of the dissolved isochrone for the Max Yellow line below:
+  </li>
+<li>
+Created Voronoi polygons within the dissolved isochrones. These polygons demarcate an area for each transit stop that consists of all points within the dissolved isochrone layer that are closer to that transit stop than to any other. This step ensures that residents living near two or more stops are not double counted, and the polygons represent the residential coverage areas for each transit stop. See an image of the residential coverage area polygons below:
+</li>
+<li>
+The population data is tied to Census block group geographies. Clipped the block groups to the residential coverage areas, and calculated the areal proportion of each block group falling fully or partially within the residential coverage areas. See an image below of the block group areas clipped to the residential coverage areas.
+</li>
+
+<li>
+Multiplied the total population figure for each block group using the areal proportion calculated in step 6 above.
+</li>
+
+<li>
+For each residential coverage area, I summed the proportional population estimates of every block group falling within it. The resulting sum is the estimated number of people living within 1/2 mile network distance from each transit stop.
+</li>
+</ol>
+
+    <br>
 <br>
-<br>
-These Voronoi polygons, clipped to the ½ mile buffers, are the transit stop residential coverage areas. As mentioned earlier, the population data does not correspond to these polygons. To address this issue, I calculated the area for each of the spaces where the residential coverage areas overlap a given census block group, and divided that by the total area of the block group. Multiplying the total population of the block group by the result of this division produces a strong estimate of the population living within the overlapping areas.  These areas and their respective population estimates are then aggregated to determine the total population within each transit stop residential coverage area.
- </p>
 
 
 	<h4> TriMet Residential Coverage Interactive Map</h4>
-	<p>This map allows users to view the residential coverage of each transit stop. The residential coverage area for each stop is defined as the region around a given transit stop consisting of all points closer to that transit stop than any other transit stop on the same route, and within ½ mile from the stop.  </p>
+    <p>
+      This map allows users to view the residential coverage of each transit stop. The residential coverage area for each stop is defined as the region around a given transit stop consisting of all points closer to that transit stop than any other transit stop on the same route, and within ½ mile network distance from the stop. Click on the layers button in the upper righthand corner to view different routes. Click on map features to view the residential coverage for each transit stop.   
+    </p>
 	<br>
 
 
