@@ -127,8 +127,10 @@
 </p>
     <h4> Methodology  </h4>
 <p>
-From downloading the Census block group level population data, to creating the final data outputs, interactive maps, and charts, this entire process has been coded using open source tools in Python and Javascript. The code used in this analysis can be viewed on Github. There are many advantages to using code to conduct the analysis. The main advantage is scalability. The code used for this analysis can be used to quickly conduct the same analysis for any transit system in the world. The code is well documented,  and the code itself is documentation of the process. This allows the work to be replicated, peer reviewed, and checked for quality assurance. The code can be leveraged across projects, across time and geographies, and can be further developed into interactive applications or web tools.
-The following steps were taken in the analysis:
+From downloading the Census block group level population data, to creating the final data outputs, interactive maps, and charts, this entire process has been coded using open source tools in Python and Javascript. The code used in this analysis can be viewed on Github. There are many advantages to using code to conduct the analysis. The main advantage is scalability. The code used for this analysis can be used to quickly conduct the same analysis for any transit system in the world. The code is well documented,  and the code itself is documentation of the process. This allows the work to be replicated, peer reviewed, and checked for quality assurance. The code can be leveraged across projects, across time and geographies, and can be further developed into increasingly complex analyses, interactive applications or web tools.
+<br>
+
+    The following steps were taken in the analysis:
 </p>
 
     <ol>
@@ -139,14 +141,14 @@ Used Python to download the 2019 5-year American Community Survey (ACS) populati
 Used OSMnx to download and process a topological street network for Multnomah County, and create isochrones for each transit stop that approximate 1/2 miles distance traveling along the walkable street network.
   </li>
   <li>
-Dissolved the isochrones areas for each transit route. The resulting polygons show everywhere that is within 1/2 mile travel on the walkable network from any of the transit stops on the route. See an image of the dissolved isochrone for the Max Yellow line below:
+Dissolved the isochrones areas for each transit route. The resulting polygons show everywhere that is within 1/2 mile travel on the walkable network from any of the transit stops on the route. Below is an image of the dissolved isochrones for the Max Yellow line:
   </li>
 <br>
         <img src="https://calvinbrown32.github.io/JWAFiles/2021/Dissolved_Iso.png" alt="dissolved_iso" width= 40%>
 <br>
         <br>
 <li>
-Created Voronoi polygons within the dissolved isochrones. These polygons demarcate an area for each transit stop that consists of all points within the dissolved isochrone layer that are closer to that transit stop than to any other. This step ensures that residents living near two or more stops are not double counted, and the polygons represent the residential coverage areas for each transit stop. See an image of the residential coverage area polygons below:
+The area within the dissolved isochrones is next split into Voronoi polygons. These polygons demarcate an area for each individual transit stop that consists of all points within the dissolved isochrone layer that are closer to that transit stop than to any other. This step ensures that residents living near two or more stops are not double counted, and the polygons represent the residential coverage areas for each transit stop. See an image of the residential coverage area polygons below:
 </li>
 <br>
         <img src="https://calvinbrown32.github.io/JWAFiles/2021/Voronoi_Polys.png" alt="voronoi_polys" width= 40%>
