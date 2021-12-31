@@ -235,8 +235,9 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
 <script>
 
-
    // CREATE MAP OBJECT
+    // var map = L.map('map');
+
     var map = L.map('map', {
     center: [45.55733331588203, -122.53807067871094],
     zoom: 12
@@ -278,7 +279,7 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
     var geojsonMarkerOptionsOutbound = {
     radius: 5,
-    fillColor: "#2b2bc4",
+    fillColor: "#9595e2",
     color: "#000",
     pane: "stops",
     weight: .5,
@@ -323,7 +324,7 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
         var route2inboundline = L.geoJson(route2inboundline, {
             color: "#2b2bc4",
-            weight: 4,
+            weight: 2.5,
             opacity: 6,
             pane: 'bus'
         }).addTo(map);
@@ -366,15 +367,15 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
         }).addTo(route_2_outbound);
 
         var route2outboundline = L.geoJson(route2outboundline, {
-                   color: "#2b2bc4",
-                 weight: 4,
+                   color: "#9595e2",
+                 weight: 2.5,
                       opacity: 6,
                       pane: 'bus'
        }).addTo(map);
 
    // LAYER CONTROL - ALLOWS LAYERS TO BE TOGGLED ON and OFF
 
-   // leave blank basemaps variable so that creates layer control box correctly
+   // leave blank basemaps variable so that leaflet creates layer control box correctly
    var basemaps = {
    };
    var overlays = {
@@ -386,45 +387,7 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 //================================================
 
 
-function highlightFeature(e) {
-		var layer = e.target;
-
-		layer.setStyle({
-			weight: 5,
-			color: '#666',
-			dashArray: '',
-			fillOpacity: 0.7
-		});
-
-		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-			layer.bringToFront();
-		}
-
-	}
-
-    function resetHighlight(e) {
-            route_2_outbound_isos.resetStyle(e.target);
-	}
-
-	function zoomToFeature(e) {
-		map.fitBounds(e.target.getBounds());
-	}
-
-	function onEachFeature(feature, layer) {
-		if (feature.properties.layer_type == 'Isochrone') {
-		layer.on({
-			mouseover: highlightFeature,
-			mouseout: resetHighlight,
-			click: zoomToFeature
-		});
-		}
-	}
-
-//===============================================================
-
-//================================================
-
-     // Message in Righthand corner saying to Click on Features
+ // Message in Righthand corner saying to Click on Features
     var info = L.control();
             info.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -436,9 +399,6 @@ function highlightFeature(e) {
             };
             info.addTo(map);
 
-
-// Add Layer box.
-L.control.layers(basemaps, overlays).addTo(map);
 
 
 
@@ -473,9 +433,52 @@ L.control.layers(basemaps, overlays).addTo(map);
    // Function to highlight the object when the mouse hovers over isochrones
    // if (feature.properties.layer_type == "Isochrone") {
 
-//
 
 
+// HOVER AND CLICK FUNCTIONS
+
+
+
+function highlightFeature(e) {
+		var layer = e.target;
+
+		layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.7
+		});
+
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}
+
+	}
+
+
+
+    function resetHighlight(e) {
+            route_2_outbound_isos.resetStyle(e.target);
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+		if (feature.properties.layer_type == 'Isochrone') {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+		}
+	}
+
+//===============================================================
+
+// Add Layer box.
+L.control.layers(basemaps, overlays).addTo(map);
 
 
     //==================================
@@ -485,11 +488,10 @@ L.control.layers(basemaps, overlays).addTo(map);
         var legend = L.control({position: 'bottomright'});
         legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend');
-        div.innerHTML = 'TriMet ' + '<br>' + '<span style="color:#2b2bc4;">──</span>  Route 2 Inbound and Outbound' + '<br>' + '<span style="color:#f9d831;">──</span>  MAX Yellow Line' ;
+        div.innerHTML = 'TriMet ' + '<br>' + '<span style="color:#2b2bc4;">──</span>  Route 2 Inbound' + '<br>' + '<span style="color:#9595e2;">──</span>  Route 2 Outbound'+ '<br>' + '<span style="color:#f9d831;">──</span>  MAX Yellow Line' ;
         return div;
         };
         legend.addTo(map);
-
 
 </script>
 
