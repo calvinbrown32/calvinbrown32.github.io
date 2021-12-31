@@ -446,13 +446,10 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 		if (feature.properties.layer_type == 'Isochrone') {
 		layer.on({
 			mouseover: highlightFeature,
-			mouseout: resetHighlight,
+			mouseout: resetHighlight
 		});
 		}
-	}
-
-	    // POP UP DATA FUNCTION
-    function onEachFeature(feature, layer) {
+		// POP UP DATA FUNCTION
 		var popupContent = "" ;
 
         	if (feature.properties && feature.properties.stop_name) {
@@ -465,6 +462,10 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
 		layer.bindPopup(popupContent);
     };
+
+
+
+
 //====================================================================
 
 //===============================================================
