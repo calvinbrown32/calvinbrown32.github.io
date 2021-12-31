@@ -386,6 +386,41 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 //================================================
 
 
+function highlightFeature(e) {
+		var layer = e.target;
+
+		layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.7
+		});
+
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}
+
+	}
+
+    function resetHighlight(e) {
+            route_2_outbound_isos.resetStyle(e.target);
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+		if (feature.properties.layer_type == 'Isochrone') {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+		}
+	}
+
+//===============================================================
 
 //================================================
 
@@ -403,7 +438,7 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
 
 // Add Layer box.
-geojson =  L.control.layers(basemaps, overlays).addTo(map);
+L.control.layers(basemaps, overlays).addTo(map);
 
 
 
