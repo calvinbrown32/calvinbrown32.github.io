@@ -57,7 +57,7 @@
 	<style>#map { width: 99%; height: 500px; }
 .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
 .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
-.control { text-align: left;}
+
 
 </head>
   <!-- The head should not be edited -->
@@ -237,8 +237,6 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
 
    // CREATE MAP OBJECT
-    // var map = L.map('map');
-
     var map = L.map('map', {
     center: [45.55733331588203, -122.53807067871094],
     zoom: 12
@@ -405,7 +403,8 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
 
 // Add Layer box.
-var geojson =  L.control.layers(basemaps, overlays).addTo(map);
+geojson =  L.control.layers(basemaps, overlays).addTo(map);
+
 
 
  // ADD ATTRIBUTION AND TILES TO MAP
@@ -438,6 +437,8 @@ var geojson =  L.control.layers(basemaps, overlays).addTo(map);
 
    // Function to highlight the object when the mouse hovers over isochrones
    // if (feature.properties.layer_type == "Isochrone") {
+
+//
 
 
 
