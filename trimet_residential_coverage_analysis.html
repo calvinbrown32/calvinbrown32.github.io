@@ -430,32 +430,22 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
 // Any text between /* and */ will be ignored by JavaScript.
 
-   // Function to highlight the object when the mouse hovers over isochrones
-   // if (feature.properties.layer_type == "Isochrone") {
-
-
-
 // HOVER AND CLICK FUNCTIONS
 
 
-
-function highlightFeature(e) {
-		var layer = e.target;
-
-		layer.setStyle({
-			weight: 5,
-			color: '#666',
-			dashArray: '',
-			fillOpacity: 0.7
-		});
+        function highlightFeature(e) {
+        var layer = e.target;
+        layer.setStyle({
+        weight: 3.5,
+        color: '#ff401f',
+        fillOpacity: 0.2
+        });
 
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 			layer.bringToFront();
 		}
 
 	}
-
-
 
     function resetHighlight(e) {
             route_2_outbound_isos.resetStyle(e.target);
@@ -492,6 +482,9 @@ L.control.layers(basemaps, overlays).addTo(map);
         return div;
         };
         legend.addTo(map);
+
+
+
 
 </script>
 
