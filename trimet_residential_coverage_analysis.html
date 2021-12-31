@@ -235,7 +235,9 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
 <script>
 
-// CREATE MAP OBJECT
+   // CREATE MAP OBJECT
+    // var map = L.map('map');
+
     var map = L.map('map', {
     center: [45.55733331588203, -122.53807067871094],
     zoom: 12
@@ -266,7 +268,7 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 
     // CREATE LAYER STYLES
     var geojsonMarkerOptions = {
-    radius: 4,
+    radius: 5,
     fillColor: "#ffffff",
     color: "#000",
     pane: "stops",
@@ -276,7 +278,7 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
     };
 
     var geojsonMarkerOptionsOutbound = {
-    radius: 4,
+    radius: 5,
     fillColor: "#9595e2",
     color: "#000",
     pane: "stops",
@@ -286,7 +288,7 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
     };
 
     var geojsonMarkerOptionsInbound = {
-    radius: 4,
+    radius: 5,
     fillColor: "#2b2bc4",
     color: "#000",
     pane: "stops",
@@ -411,20 +413,7 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
     pane: 'labels'
     }).addTo(map);
 
-    // POP UP DATA FUNCTION
-    function onEachFeature(feature, layer) {
-		var popupContent = "" ;
-
-        	if (feature.properties && feature.properties.stop_name) {
-			popupContent += feature.properties.stop_name;
-		}
-
-		if (feature.properties && feature.properties.proportional_pop_comma) {
-			popupContent += "<h6>" + (feature.properties.proportional_pop_comma) + " people live in the residential coverage area for this station</h6>";
-		}
-
-		layer.bindPopup(popupContent);
-    };
+//==============================================================================
 
 // Any text between /* and */ will be ignored by JavaScript.
 
@@ -458,10 +447,25 @@ Code used in the analysis can be viewed at <a href="https://github.com/calvinbro
 		layer.on({
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: zoomToFeature
 		});
 		}
 	}
+
+	    // POP UP DATA FUNCTION
+    function onEachFeature(feature, layer) {
+		var popupContent = "" ;
+
+        	if (feature.properties && feature.properties.stop_name) {
+			popupContent += feature.properties.stop_name;
+		}
+
+		if (feature.properties && feature.properties.proportional_pop_comma) {
+			popupContent += "<h6>" + (feature.properties.proportional_pop_comma) + " people live in the residential coverage area for this station</h6>";
+		}
+
+		layer.bindPopup(popupContent);
+    };
+//====================================================================
 
 //===============================================================
 
