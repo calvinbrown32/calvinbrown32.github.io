@@ -85,7 +85,7 @@ function onEachFeature(feature, layer) {
 		layer.bindPopup(popupContent);
 	}
 
-L.geoJSON(maxstops, {
+L.geoJSON(max_stops, {
 
 	onEachFeature: onEachFeature,
     pointToLayer: function (feature, latlng) {
