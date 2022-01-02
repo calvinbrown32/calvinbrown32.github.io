@@ -1,38 +1,40 @@
 
-var map = L.map('map');
-map.createPane('lirr');
-    map.getPane('lirr').style.zIndex = 640;
-
-map.createPane('stops');
-    map.getPane('stops').style.zIndex = 660;
-
-map.createPane('bus');
-    map.getPane('bus').style.zIndex = 650;
 
 
-    var route2outboundline = L.geoJson(route2outboundline, {
-               color: "#9595e2",
-             weight: 2,
-                  opacity: 6,
-                  pane: 'bus'
-       }).addTo(map);
+   // CREATE MAP OBJECT
+    // var map = L.map('map');
 
-   var route2inboundline = L.geoJson(route2inboundline, {
-    color: "#2b2bc4",
-        weight: 1.5,
-        opacity: 6,
-        pane: 'bus'
-    }).addTo(map);
+    var map = L.map('map', {
+    center: [45.55733331588203, -122.53807067871094],
+    zoom: 12
+    });
 
-   var maxline = L.geoJson(maxline, {
-    color: "#f9d831",
-        weight: 4.5,
-        opacity: 6,
-        pane: 'lirr'
-    }).addTo(map);
+//=================================================
 
+    // CREATE MAP PANES
+    map.createPane('lirr');
+        map.getPane('lirr').style.zIndex = 640;
+
+    map.createPane('stops');
+        map.getPane('stops').style.zIndex = 660;
+
+    map.createPane('bus');
+        map.getPane('bus').style.zIndex = 650;
+
+    // This pane is above markers but below popups
+    map.createPane('labels');
+    map.getPane('labels').style.zIndex = 650;
+
+    // Layers in this pane are non-interactive and do not obscure mouse/touch events
+    map.getPane('labels').style.pointerEvents = 'none';
+
+    //=============================================================
+
+
+
+    // CREATE LAYER STYLES
     var geojsonMarkerOptions = {
-    radius: 3.5,
+    radius: 5,
     fillColor: "#ffffff",
     color: "#000",
     pane: "stops",
@@ -40,8 +42,9 @@ map.createPane('bus');
     opacity: 1,
     fillOpacity: 0.8
     };
-       var geojsonMarkerOptionsOutbound = {
-    radius: 3,
+
+    var geojsonMarkerOptionsOutbound = {
+    radius: 5,
     fillColor: "#9595e2",
     color: "#000",
     pane: "stops",
@@ -49,8 +52,9 @@ map.createPane('bus');
     opacity: 1,
     fillOpacity: 0.8
     };
-       var geojsonMarkerOptionsInbound = {
-    radius: 3,
+
+    var geojsonMarkerOptionsInbound = {
+    radius: 5,
     fillColor: "#2b2bc4",
     color: "#000",
     pane: "stops",
@@ -59,103 +63,191 @@ map.createPane('bus');
     fillOpacity: 0.8
 };
 
-function onEachFeature(feature, layer) {
-		var popupContent = "" ;
 
-		if (feature.properties && feature.properties.STATION ) {
-			popupContent += feature.properties.STATION;
+//================================================================
+
+    // CREATE LAYER GROUPS AND LAYERS
+
+    var max_yellow_line = L.layerGroup().addTo(map);
+    var route_2_inbound = L.layerGroup();
+    var route_2_outbound = L.layerGroup();
+
+       // ADD LAYERS To Layer Groups
+       var route_2_inbound_io_stops =  L.geoJSON(route_2_inbound_io_stops, {
+            onEachFeature: onEachFeature,
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, geojsonMarkerOptionsInbound);
+            }
+        }).addTo(route_2_inbound);
+
+        var route_2_inbound_isos = L.geoJSON(route_2_inbound_io_isos, {
+        onEachFeature: onEachFeature,
+            color: "#5656fc",
+            weight: 1.5,
+            opacity: 7,
+            pane: 'bus'
+        }).addTo(route_2_inbound);
+
+        var route2inboundline = L.geoJson(route2inboundline, {
+            color: "#2b2bc4",
+            weight: 2.5,
+            opacity: 6,
+            pane: 'bus'
+        }).addTo(map);
+
+       var max_stops = L.geoJSON(max_stops, {
+            onEachFeature: onEachFeature,
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, geojsonMarkerOptions);
+            }
+        }).addTo(max_yellow_line);
+
+       var max_line_isos = L.geoJSON(max_isos, {
+        onEachFeature: onEachFeature,
+        color: "#ffe978",
+            weight: 3,
+            opacity: 7,
+            pane: 'lirr'
+        }).addTo(max_yellow_line);
+
+       var maxline = L.geoJson(maxline, {
+        color: "#f9d831",
+            weight: 4.5,
+            opacity: 6,
+            pane: 'lirr'
+        }).addTo(map);
+
+       var route_2_outbound_stops = L.geoJSON(route_2_outbound_stops, {
+            onEachFeature: onEachFeature,
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, geojsonMarkerOptionsOutbound);
+            }
+        }).addTo(route_2_outbound);
+
+       var route_2_ob_isos = L.geoJSON(route_2_outbound_isos, {
+            onEachFeature: onEachFeature,
+            color: "#bdbdff",
+            weight: 2,
+            opacity: 7,
+            pane: 'bus'
+        }).addTo(route_2_outbound);
+
+        var route2outboundline = L.geoJson(route2outboundline, {
+                   color: "#2b2bc4",
+                 weight: 2.5,
+                      opacity: 6,
+                      pane: 'bus'
+       }).addTo(map);
+
+   // LAYER CONTROL - ALLOWS LAYERS TO BE TOGGLED ON and OFF
+
+   // leave blank basemaps variable so that leaflet creates layer control box correctly
+   var basemaps = {
+   };
+   var overlays = {
+          "Max Yellow Line": max_yellow_line,
+          "2-Division Inbound":route_2_inbound,
+          "2-Division Outbound":route_2_outbound
+     };
+
+//================================================
+
+
+ // Message in Righthand corner saying to Click on Features
+    var info = L.control();
+            info.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info');
+                this.update();
+                return this._div;
+            };
+            info.update = function (props) {
+                this._div.innerHTML = '<b>Select a Transit Route using the button below <br> and click on individual stops for more info</b>';
+            };
+            info.addTo(map);
+
+
+
+
+ // ADD ATTRIBUTION AND TILES TO MAP
+    var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+    var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+    attribution: cartodbAttribution
+    }).addTo(map);
+
+    var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+    attribution: cartodbAttribution,
+    pane: 'labels'
+    }).addTo(map);
+
+//==============================================================================
+
+// Any text between /* and */ will be ignored by JavaScript.
+
+// HOVER AND CLICK FUNCTIONS
+
+
+        function highlightFeature(e) {
+        var layer = e.target;
+        layer.setStyle({
+        weight: 3.5,
+        color: '#ff401f',
+        fillOpacity: 0.2
+        });
+
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
 		}
+
+	}
+
+    function resetHighlight(e) {
+            route_2_ob_isos.resetStyle(e.target);
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+		if (feature.properties.layer_type == 'Isochrone') {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight
+		});
+		}
+		// POP UP DATA FUNCTION
+		var popupContent = "" ;
 
         	if (feature.properties && feature.properties.stop_name) {
 			popupContent += feature.properties.stop_name;
 		}
 
-		if (feature.properties && feature.properties.SumByStati) {
-			popupContent += "<h6>" + (feature.properties.SumByStati) + " people live in the residential coverage area for this station</h6>";
-		}
-
-		if (feature.properties && feature.properties.vorbguni_1) {
-			popupContent += "<h6>" + (feature.properties.vorbguni_1) + " people live in the residential coverage area for this bus stop. </h6>";
-		}
-
-		if (feature.properties && feature.properties.outPopSum) {
-			popupContent += "<h6>" + (feature.properties.outPopSum) + " people live in the residential coverage area for this bus stop </h6>";
+		if (feature.properties && feature.properties.proportional_pop_comma) {
+			popupContent += "<h6>" + (feature.properties.proportional_pop_comma) + " people live in the residential coverage area for this station</h6>";
 		}
 
 		layer.bindPopup(popupContent);
-	}
-
-L.geoJSON(max_stops, {
-
-	onEachFeature: onEachFeature,
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
-    }
-}).addTo(map);
-
-L.geoJSON(route2outboundstops, {
-
-	onEachFeature: onEachFeature,
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptionsOutbound);
-    }
-}).addTo(map);
-
-L.geoJSON(route2inboundstops, {
-
-	onEachFeature: onEachFeature,
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptionsInbound);
-    }
-}).addTo(map);
-
-
-map.createPane('labels');
-// This pane is above markers but below popups
-map.getPane('labels').style.zIndex = 650;
-// Layers in this pane are non-interactive and do not obscure mouse/touch events
-map.getPane('labels').style.pointerEvents = 'none';
-var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
-var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-attribution: cartodbAttribution
-}).addTo(map);
-var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
-attribution: cartodbAttribution,
-pane: 'labels'
-}).addTo(map);
-
-map.setView([45.55733331588203, -122.53807067871094], 12);
-
-
-
-
-// control that shows state info on hover
-
-
-var info = L.control();
-    info.onAdd = function (map) {
-        this._div = L.DomUtil.create('div', 'info');
-        this.update();
-        return this._div;
     };
-    info.update = function (props) {
-        this._div.innerHTML = '<b>Click on features for more info</b>';
-    };
-    info.addTo(map);
 
 
-var legend = L.control({position: 'bottomright'});
 
 
-legend.onAdd = function (map) {
-var div = L.DomUtil.create('div', 'info legend');
+//====================================================================
+
+//===============================================================
+
+// Add Layer box.
+L.control.layers(basemaps, overlays).addTo(map);
 
 
-div.innerHTML = 'TriMet ' + '<br>' + '<span style="color:#2b2bc4;">──</span>  Route 2 Inbound' + '<br>' + '<span style="color:#9595e2;">──</span>  Route 2 Outbound'+ '<br>' + '<span style="color:#f9d831;">──</span>  MAX Yellow Line' ;
-return div;
-};
+    //==================================
 
-legend.addTo(map);
+        // ADD LEGEND
 
-
-map.setView([45.55733331588203, -122.53807067871094], 12);
+        var legend = L.control({position: 'bottomright'});
+        legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend');
+        div.innerHTML = 'TriMet ' + '<br>' + '<span style="color:#2b2bc4;">──</span>  Route 2 Inbound and Outbound' + '<br>' +  '<span style="color:#f9d831;">──</span>  MAX Yellow Line' ;
+        return div;
+        };
+        legend.addTo(map);
