@@ -267,11 +267,11 @@ map.on('baselayerchange', function(eo) {
     $( "#bar_graph" ).empty();
     console.log('SelectedLayer>>>>>>>>>>>>>>',SelectedLayer);
     if (eo.name === 'Max Yellow Line') {
-    $.getScript("static/max_bar_chart.js")}
+    $.getScript("JWAFiles/2021/max_bar_chart.js")}
     else if (eo.name === '2-Division Inbound') {
-    $.getScript("static/route_2_ib_bar_chart.js")}
+    $.getScript("JWAFiles/2021/route_2_ib_bar_chart.js")}
     else {
-    $.getScript("static/route_2_ob_bar_chart.js")}
+    $.getScript("JWAFiles/2021/route_2_ob_bar_chart.js")}
     }
 );
 
