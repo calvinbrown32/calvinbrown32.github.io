@@ -1,9 +1,30 @@
+// Extend Leafletjs to include a function that returns active layers
+    L.Control.Layers.include({
+      getOverlays: function() {
+        // create hash to hold all layers
+        var control, layers;
+        layers = {};
+        control = this;
+
+        // loop thru all layers in control
+        control._layers.forEach(function(obj) {
+          var layerName;
+
+          // check if layer is an overlay
+          if (obj.overlay) {
+            // get name of overlay
+            layerName = obj.name;
+            // store whether it's present on the map or not
+            return layers[layerName] = control._map.hasLayer(obj.layer);
+          }
+        });
+
+        return layers;
+      }
+    });
 
 
-
-   // CREATE MAP OBJECT
-    // var map = L.map('map');
-
+// CREATE MAP OBJECT
     var map = L.map('map', {
     center: [45.55733331588203, -122.53807067871094],
     zoom: 12
@@ -141,13 +162,15 @@
 
    // LAYER CONTROL - ALLOWS LAYERS TO BE TOGGLED ON and OFF
 
-   // leave blank basemaps variable so that leaflet creates layer control box correctly
+   // leave blank overlay variable so that leaflet creates layer control box correctly.
+   // basemap layers are added as radio buttons. Only one can be selected at a time.
    var basemaps = {
-   };
-   var overlays = {
-          "Max Yellow Line": max_yellow_line,
+             "Max Yellow Line": max_yellow_line,
           "2-Division Inbound":route_2_inbound,
           "2-Division Outbound":route_2_outbound
+   };
+   // Overlay layers are added as select boxes, and multiple can be selected at one time
+   var overlays = {
      };
 
 //================================================
@@ -165,9 +188,6 @@
             };
             info.addTo(map);
 
-
-
-
  // ADD ATTRIBUTION AND TILES TO MAP
     var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
     var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
@@ -184,8 +204,6 @@
 // Any text between /* and */ will be ignored by JavaScript.
 
 // HOVER AND CLICK FUNCTIONS
-
-
         function highlightFeature(e) {
         var layer = e.target;
         layer.setStyle({
@@ -237,7 +255,31 @@
 //===============================================================
 
 // Add Layer box.
-L.control.layers(basemaps, overlays).addTo(map);
+var control = L.control.layers(basemaps, overlays).addTo(map);
+
+// use ActiveLayers.js to get active base layer
+console.log("Active layers are: ")
+console.log(control.getOverlays())
+
+var SelectedLayer='';  // default value
+map.on('baselayerchange', function(eo) {
+    SelectedLayer=eo.name;
+    $( "#bar_graph" ).empty();
+    console.log('SelectedLayer>>>>>>>>>>>>>>',SelectedLayer);
+    if (eo.name === 'Max Yellow Line') {
+    $.getScript("static/max_bar_chart.js")}
+    else if (eo.name === '2-Division Inbound') {
+    $.getScript("static/route_2_ib_bar_chart.js")}
+    else {
+    $.getScript("static/route_2_ob_bar_chart.js")}
+    }
+);
+
+var name;
+map.on('overlayadd', function(e){
+   name = e.name;
+   console.log(name);
+})
 
 
     //==================================
@@ -251,3 +293,5 @@ L.control.layers(basemaps, overlays).addTo(map);
         return div;
         };
         legend.addTo(map);
+
+
