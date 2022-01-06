@@ -64,3 +64,4 @@
       // add the y Axis
       svg.append("g")
           .call(d3.axisLeft(y));
+
