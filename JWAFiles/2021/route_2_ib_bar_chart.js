@@ -38,6 +38,13 @@
       x.domain(data.map(function(d) { return d.properties.stop_name; }));
       y.domain([0, d3.max(data, function(d) { return d.properties.proportional_pop; })]);
 
+        // ADD TOOL TIP Div to body
+    // Define the div for the tooltip
+    var div = d3.select("#bar_graph_area").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+
         // append the rectangles for the bar chart
       svg.selectAll(".bar")
           .data(data)
