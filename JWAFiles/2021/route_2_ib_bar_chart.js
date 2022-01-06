@@ -27,7 +27,7 @@
     // append the svg object to the body of the page
     // append a 'group' element to 'svg'
     // moves the 'group' element to the top left margin
-    var svg = d3.select("#bar_graph").append("svg")
+    var svg = d3.select("#bar_graph_area").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -49,9 +49,29 @@
           .attr("height", function(d) { return height - y(d.properties.proportional_pop); })
           .style("fill", "#5656fc")
           .style("stroke", "#1414ff")
-          .style("stroke-width", "1.5");
-
-
+          .style("stroke-width", "1.5")
+            //Our new hover effects
+         .on('mouseover', function (event, d) {
+            d3.select(this)
+               .style('fill', '#ff401f')
+               .style('stroke', '#ff401f')
+            div.transition()
+                .duration(10)
+                .style("opacity", .9);
+                div.html(d.properties.proportional_pop_comma)
+                     .style("left", (event.pageX - 80) + "px")
+                     .style("top", (event.pageY - 350) + "px")
+                     console.log(event.x, event.y)
+                     console.log(d.properties)
+                     })
+            .on('mouseout', function (d, i) {
+            d3.select(this)
+                .style("fill", "#ffe978")
+                .style("stroke", "#ffd917")
+               div.transition()
+               .duration('10')
+               .style("opacity", 0);
+              })
 
       // add the x Axis
       svg.append("g")
@@ -66,3 +86,24 @@
       // add the y Axis
       svg.append("g")
           .call(d3.axisLeft(y));
+
+                  svg.append('text')
+            .attr('x',  -125)
+            .attr('y', -80)
+            .attr('transform', 'rotate(-90)')
+            .attr('text-anchor', 'middle')
+            .text('Number of Residents')
+            svg.append('text')
+            .attr('x', -125)
+            .attr('y',-60)
+            .attr('transform', 'rotate(-90)')
+            .attr('text-anchor', 'middle')
+            .text('Living in Coverage Area')
+
+
+        svg.append('text')
+            .attr('x', margin.left + 15 )
+            .attr('y', -30)
+            .attr('text-anchor', 'middle')
+            .text('Residential Coverage by Stop')
+
