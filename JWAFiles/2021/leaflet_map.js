@@ -264,7 +264,7 @@ console.log(control.getOverlays())
 var SelectedLayer='';  // default value
 map.on('baselayerchange', function(eo) {
     SelectedLayer=eo.name;
-    $( "#bar_graph_area" ).empty();
+    $( "#bar_graph" ).empty();
     console.log('SelectedLayer>>>>>>>>>>>>>>',SelectedLayer);
     if (eo.name === 'Max Yellow Line') {
     $.getScript("JWAFiles/2021/max_bar_chart.js")}

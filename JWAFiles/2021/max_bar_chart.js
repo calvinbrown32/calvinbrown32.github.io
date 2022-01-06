@@ -8,9 +8,7 @@
 
     // SET DATA VARIABLE TO FEATURES ONLY
     data = data.features;
-    console.log("max line data: ");
 
-    console.log(data);
 
     // set the dimensions and margins of the graph
     var margin = {top: 60, right: 20, bottom: 200, left: 100},
