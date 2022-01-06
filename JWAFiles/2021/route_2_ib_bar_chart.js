@@ -13,7 +13,7 @@
     console.log(data);
 
     // set the dimensions and margins of the graph
-    var margin = {top: 20, right: 20, bottom: 200, left: 80},
+    var margin = {top: 60, right: 20, bottom: 200, left: 100},
         width = 1100 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -66,8 +66,8 @@
                      })
             .on('mouseout', function (d, i) {
             d3.select(this)
-                .style("fill", "#ffe978")
-                .style("stroke", "#ffd917")
+                 .style("fill", "#5656fc")
+                .style("stroke", "#1414ff")
                div.transition()
                .duration('10')
                .style("opacity", 0);
