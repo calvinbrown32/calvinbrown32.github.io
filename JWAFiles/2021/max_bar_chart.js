@@ -97,14 +97,14 @@
             .attr('y', -80)
             .attr('transform', 'rotate(-90)')
             .attr('text-anchor', 'middle')
-            .style("font-size", "34px")
+            .style("font-size", "10px")
             .text('Number of Residents')
             svg.append('text')
             .attr('x', -125)
             .attr('y',-60)
             .attr('transform', 'rotate(-90)')
             .attr('text-anchor', 'middle')
-            .style("font-size", "29px")
+            .style("font-size", "10px")
             .text('Living in Coverage Area')
 
 
