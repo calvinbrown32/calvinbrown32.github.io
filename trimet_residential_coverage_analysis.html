@@ -164,21 +164,21 @@ Next, I used OSMnx to download and process a topological street network for Mult
 The isochrones are dissolved, resulting in polygons in show everywhere that is within 1/2 mile travel on the walkable network from any of the transit stops on the route. Below is an image of the dissolved isochrones for the outbound Route 2 bus:
   </li>
 <br>
-        <img src="https://calvinbrown32.github.io/JWAFiles/2021/Dissolved_Iso.png" alt="dissolved_iso" width= 65%>
+        <img src="https://calvinbrown32.github.io/JWAFiles/2021/Dissolved_Iso.png" alt="dissolved_iso" width= 80%>
 <br>
         <br>
 <li>
 The area within the dissolved isochrones is next split into Voronoi polygons. These polygons demarcate an area for each individual transit stop that consists of all points within the dissolved isochrone layer that are closer to that transit stop than to any other stop. This step ensures that residents living near two or more stops are not double counted. These polygons are the residential coverage areas for each transit stop. See an image of these areas below:
 </li>
 <br>
-        <img src="https://calvinbrown32.github.io/JWAFiles/2021/Iso_With_Stops.png" alt="Iso_With_Stops" width= 65%>
+        <img src="https://calvinbrown32.github.io/JWAFiles/2021/Iso_With_Stops.png" alt="Iso_With_Stops" width= 80%>
 <br>
         <br>
         <li>
 The Census population data is at the block group level. The block group geographies do no align with the residential coverage areas created in earlier steps, and so additional step will need to be taken to estimate what proportion of the residents counted in the block groups live within the residential coverage areas. First, the block groups are clipped to the residential coverage areas, and the areal proportion of each block group falling fully or partially within the residential coverage areas is calculated. See an image below of the block group areas clipped to the residential coverage areas.
 </li>
         <br>
-<img src="https://calvinbrown32.github.io/JWAFiles/2021/Iso_Block_Groups.png" alt="Iso_Block_Groups" width= 65%>
+<img src="https://calvinbrown32.github.io/JWAFiles/2021/Iso_Block_Groups.png" alt="Iso_Block_Groups" width= 80%>
         <br>
         <br>
 
