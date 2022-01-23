@@ -97,12 +97,14 @@
             .attr('y', -80)
             .attr('transform', 'rotate(-90)')
             .attr('text-anchor', 'middle')
+            .style("font-size", "34px")
             .text('Number of Residents')
             svg.append('text')
             .attr('x', -125)
             .attr('y',-60)
             .attr('transform', 'rotate(-90)')
             .attr('text-anchor', 'middle')
+            .style("font-size", "29px")
             .text('Living in Coverage Area')
 
 
@@ -110,6 +112,7 @@
             .attr('x', margin.left + 15 )
             .attr('y', -30)
             .attr('text-anchor', 'middle')
+            .style("font-size", "10px")
             .text('Residential Coverage by Stop')
 
 
