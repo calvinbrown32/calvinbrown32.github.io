@@ -13,7 +13,7 @@
     // set the dimensions and margins of the graph
     var margin = {top: 60, right: 20, bottom: 200, left: 100},
         width = 350 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+        height = 500 - margin.top - margin.bottom;
 
     // set the ranges
     var x = d3.scaleBand()
@@ -88,7 +88,7 @@
           .attr("dy", ".15em")
           .attr("transform", "rotate(-65)");
 
-      // add the y Axis
+      // add the y Axis title
       svg.append("g")
           .call(d3.axisLeft(y));
 
