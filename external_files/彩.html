@@ -28,6 +28,81 @@
     };
 
     var typed = new Typed("#typed-output", options);
+
+    const colors = [
+  "#FF0000", // Red
+  "#FF7F00", // Orange
+  "#FFFF00", // Yellow
+  "#00FF00", // Green
+  "#0000FF", // Blue
+  "#4B0082", // Indigo
+  "#8B00FF", // Violet
+  "#FF69B4", // Hot Pink
+  "#00FFFF", // Cyan
+  "#FF00FF", // Magenta
+  "#FF6347", // Tomato
+  "#FFD700", // Gold
+  "#32CD32", // Lime Green
+  "#FF1493", // Deep Pink
+  "#00BFFF", // Deep Sky Blue
+  "#FF6347", // Coral
+  "#DC143C", // Crimson
+  "#8A2BE2", // Blue Violet
+  "#00FA9A", // Medium Spring Green
+  "#FF4500", // Orange Red
+  "#FF8C00", // Dark Orange
+  "#ADFF2F", // Green Yellow
+  "#D2691E", // Chocolate
+  "#C71585", // Medium Violet Red
+  "#7FFF00", // Chartreuse
+  "#00CED1", // Dark Turquoise
+  "#FF1493", // Deep Pink (again for variety)
+  "#FFB6C1", // Light Pink
+  "#FFFFE0", // Light Yellow
+  "#32CD32", // Lime Green (again for variety)
+  "#98FB98", // Pale Green
+];
+
+
+  // Get the <g> element by ID
+  // const group = document.getElementById("myGroup");
+
+  // // Variable to keep track of the current color index
+  // let currentColorIndex = 0;
+
+  // // Function to change the fill color of the group
+  // function changeColor() {
+  //   // Change the fill to the next color in the array
+  //   group.setAttribute("fill", colors[currentColorIndex]);
+
+  //   // Update the color index to the next one
+  //   currentColorIndex = (currentColorIndex + 1) % colors.length;  // Loop back to the start
+  // }
+
+  // // Set an interval to change the color every 1 second (1000ms)
+  // setInterval(changeColor, 1000);
+
+
+// Get the <g> element by ID
+  const group = document.getElementById("myGroup");
+  
+  // Variable to keep track of the current color index
+  let currentColorIndex = 0;
+  
+  // Set up the transition for a smooth fade effect
+  group.style.transition = "fill 1s ease"; // 1 second transition on the fill property
+  
+  // Function to change the fill color of the group with a fade effect
+  function changeColor() {
+    // Change the fill to the next color in the array
+    group.setAttribute("fill", colors[currentColorIndex]);
+  
+    // Update the color index to the next one
+    currentColorIndex = (currentColorIndex + 1) % colors.length;  // Loop back to the start
+  }
+  
+  // Set an interval to change the color every 1 second (1000ms)
+  setInterval(changeColor, 2000);
   </script>
 
     <div class="svg-container">
@@ -44,7 +119,7 @@
   </div>
 
 
-//  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
 
@@ -192,80 +267,7 @@ m-225 -237 c0 -21 -24 -28 -35 -10 -8 14 3 30 21 30 8 0 14 -9 14 -20z"/>
 
 <script>
 
-const colors = [
-  "#FF0000", // Red
-  "#FF7F00", // Orange
-  "#FFFF00", // Yellow
-  "#00FF00", // Green
-  "#0000FF", // Blue
-  "#4B0082", // Indigo
-  "#8B00FF", // Violet
-  "#FF69B4", // Hot Pink
-  "#00FFFF", // Cyan
-  "#FF00FF", // Magenta
-  "#FF6347", // Tomato
-  "#FFD700", // Gold
-  "#32CD32", // Lime Green
-  "#FF1493", // Deep Pink
-  "#00BFFF", // Deep Sky Blue
-  "#FF6347", // Coral
-  "#DC143C", // Crimson
-  "#8A2BE2", // Blue Violet
-  "#00FA9A", // Medium Spring Green
-  "#FF4500", // Orange Red
-  "#FF8C00", // Dark Orange
-  "#ADFF2F", // Green Yellow
-  "#D2691E", // Chocolate
-  "#C71585", // Medium Violet Red
-  "#7FFF00", // Chartreuse
-  "#00CED1", // Dark Turquoise
-  "#FF1493", // Deep Pink (again for variety)
-  "#FFB6C1", // Light Pink
-  "#FFFFE0", // Light Yellow
-  "#32CD32", // Lime Green (again for variety)
-  "#98FB98", // Pale Green
-];
 
-
-  // Get the <g> element by ID
-  // const group = document.getElementById("myGroup");
-
-  // // Variable to keep track of the current color index
-  // let currentColorIndex = 0;
-
-  // // Function to change the fill color of the group
-  // function changeColor() {
-  //   // Change the fill to the next color in the array
-  //   group.setAttribute("fill", colors[currentColorIndex]);
-
-  //   // Update the color index to the next one
-  //   currentColorIndex = (currentColorIndex + 1) % colors.length;  // Loop back to the start
-  // }
-
-  // // Set an interval to change the color every 1 second (1000ms)
-  // setInterval(changeColor, 1000);
-
-
-// Get the <g> element by ID
-  const group = document.getElementById("myGroup");
-  
-  // Variable to keep track of the current color index
-  let currentColorIndex = 0;
-  
-  // Set up the transition for a smooth fade effect
-  group.style.transition = "fill 1s ease"; // 1 second transition on the fill property
-  
-  // Function to change the fill color of the group with a fade effect
-  function changeColor() {
-    // Change the fill to the next color in the array
-    group.setAttribute("fill", colors[currentColorIndex]);
-  
-    // Update the color index to the next one
-    currentColorIndex = (currentColorIndex + 1) % colors.length;  // Loop back to the start
-  }
-  
-  // Set an interval to change the color every 1 second (1000ms)
-  setInterval(changeColor, 2000);
   </script>
 
 
