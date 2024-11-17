@@ -14,31 +14,74 @@
   </style>
 </head>
 <body>
-  <div id="typing" class="typing-text"></div>
 
-  <script src="script.js"></script>
+    <div id="typed-output"></div>
+
+  <script>
+    var options = {
+      strings: ["Hello, welcome to my website!", "Enjoy your stay!"],
+      typeSpeed: 50,      // Speed in milliseconds
+      backSpeed: 30,      // Speed when deleting
+      backDelay: 1000,    // Delay before deleting
+      startDelay: 500,    // Delay before starting the typing
+      loop: true          // Loop the animation
+    };
+
+    var typed = new Typed("#typed-output", options);
+  </script>
+
+    <div class="svg-container">
+    <svg id="mySvg" version="1.0" xmlns="http://www.w3.org/2000/svg"
+         width="400.000000pt" height="401.000000pt" viewBox="0 0 400.000000 401.000000"
+         preserveAspectRatio="xMidYMid meet">
+      <g id="myGroup" transform="translate(0.000000,401.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+        <!-- SVG Paths go here (same as your original code) -->
+        <path d="M1823 3913..." />
+        <path d="M3313 3883..." />
+        <!-- Add all your paths here -->
+      </g>
+    </svg>
+  </div>
+
+
+//  <script src="script.js"></script>
 </body>
 </html>
 
-
-
 <style>
-  /* Center the SVG using flexbox */
-  body, html {
-    margin: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0; /* optional background color */
-  }
+    /* Center the SVG and the text using flexbox */
+    body, html {
+      margin: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0; /* Optional background color */
+      flex-direction: column; /* Stack the SVG and the text */
+    }
 
-  /* Optional: Ensure SVG takes up a portion of the viewport */
-  svg {
-    width: 90%; /* Or any percentage of the viewport width */
-    height: auto; /* Maintain aspect ratio */
-  }
-</style>
+    /* Container for the SVG with a fixed size */
+    .svg-container {
+      width: 400px;  /* You can adjust this size */
+      height: 400px; /* You can adjust this size */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px; /* Space between SVG and text */
+    }
+
+    /* Optional: Ensure the SVG scales inside the container */
+    svg {
+      width: 100%;
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Typing text styling */
+    .typing-text {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 24px;
+    }
+  </style>
 
 <svg id="mySvg" version="1.0" xmlns="http://www.w3.org/2000/svg"
      width="400.000000pt" height="401.000000pt" viewBox="0 0 400.000000 401.000000"
