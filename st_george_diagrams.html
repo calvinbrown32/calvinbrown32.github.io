@@ -105,25 +105,28 @@ This project develops GTFS Pathways and Apple’s Indoor Mapping Data Format (IM
 <section class="container" style="padding-top: 40px; padding-bottom: 60px;">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2>Improving Accessibility and Passenger Experience</h2>
+      <h2>About This Project</h2>
 
       <p>
-        GTFS Pathways and the Indoor Mapping Data Format (IMDF) provide
-        structured representations of complex, multi-modal, multi-level
-        transit facilities. By abstracting physical spaces, pedestrian
-        pathways, and connections between transportation services, these
-        specifications make it possible to analyze and communicate the
-        relationships that shape passenger movement through a terminal.
+GTFS Pathways and Apple’s Indoor Mapping Data Format (IMDF) provide standardized ways to represent the layout, features, and navigational connections of complex, multilevel, multimodal transit facilities. By providing structured, machine-readable data, these specifications create a shared foundation for architectural and wayfinding design, passenger information systems, and indoor navigation applications.
+
+This project demonstrates how these data models can support applications beyond conventional station maps and diagrams. Developers can use the data to build routing tools that guide passengers through a terminal, from its entrances to individual platforms and ferry slips. With accurate accessibility information and up-to-date operational data, these tools could also help passengers with mobility needs navigate around elevator outages and other disruptions.
+
+I extended this demonstration by integrating real-time transit data APIs to display upcoming departures, illustrating how indoor mapping and navigation data can be combined with live transit information to provide passengers with more timely and actionable guidance. The same underlying data can also support the production and updating of maps, diagrams, and other passenger information products.
+
+Using the St. George Ferry Terminal as a case study, this project explores how standardized transit and indoor mapping data can connect spatial information, live transit services, architectural design, wayfinding, and accessible passenger navigation.
       </p>
 
+        <h2>Methodology</h2>
+
       <p>
-        This shared data foundation can inform architectural and wayfinding
-        design, support accessible and real-time passenger routing, and
-        enable the automated production and updating of maps, graphics, and
-        other passenger information products. Open specifications also allow
-        developers to incorporate this information into third-party
-        applications, extending its potential to improve the passenger
-        experience across multiple platforms.
+The GTFS Pathways and IMDF datasets presented here are proof-of-concept models developed for demonstration purposes. They have not been independently verified and should not be considered authoritative representations of the terminal.
+
+To develop the models, I used QGIS to georeference publicly available drawings of the St. George Ferry Terminal. I then used Claude AI to assist in interpreting the drawings and extracting their spatial and navigational information. I provided the AI with a structured list of target features, including relevant spaces, connections, and other elements needed to represent the terminal in the two data models.
+
+I reviewed the extracted information and supplied annotated versions of the drawings to clarify features and relationships that required further interpretation. This iterative process produced a detailed representation of the information depicted in the source drawings, which I used to develop the demonstration GTFS Pathways and IMDF datasets.
+
+The resulting models illustrate how georeferenced architectural drawings and AI-assisted information extraction can help translate complex indoor environments into structured data for mapping, navigation, and wayfinding applications. Further verification against authoritative plans and on-site conditions would be necessary before using the datasets in operational applications.
       </p>
     </div>
   </div>
